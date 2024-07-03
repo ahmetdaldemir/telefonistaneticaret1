@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fea81975-61e8-4f2e-8ef3-b10cab250d91" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Abstracts/PaymentMethodService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Abstracts/PaymentMethodServiceRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Abstracts/RemoteRestRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Abstracts/VirtualMarketService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Abstracts/VirtualMarketServiceRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/MailTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/MounthDeal.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/PaymentTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/TrendyolBrandCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/TrendyolCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/TrendyolProduct.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Contracts/PaymentMethodServiceContract.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Contracts/VirtualMarketServiceContract.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Events/CheckoutRequested.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Events/OrderCompleted.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Events/OrderRepair.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Events/OrderStatus.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Events/SendEmailEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helpers/CategoryHelper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helpers/CustomHelper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helpers/HashHelper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BannerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BrandController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CustomerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/EcommerceSettingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/FaqController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ModelController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductAttributeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SliderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/VirtualMarketController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ProductController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Ecommerce/EcommerceController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Ecommerce/GoogleAuthController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/GoogleAuthController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SubscribeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckEticaretSubdomain.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Language.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/PreventRequestsDuringMaintenance.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfWWW.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustHosts.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Jobs/TrendyolBrand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Jobs/TrendyolCategory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listeners/CreateCustomerIfNotExists.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listeners/OrderRepair.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listeners/SendEmailListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listeners/SendOrderCompletedMail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listeners/SendOrderStatusMail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Locators/PaymentServiceLocator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Locators/VirtualMarketServiceLocator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Mail/OrderCompletedMail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Mail/OrderStatusMail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Mail/SendEmail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Attribute.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/AttributeGroup.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Banner.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Brand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Cart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/City.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/CompanyShippingSetting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Customer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/CustomerAddress.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/CustomerInvoice.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/EcommerceSetting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Faq.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/MonthlyDeal.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/OrderHistory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/OrderMessage.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/OrderProduct.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/OrderVoucher.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Page.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/PaymentMethodSetting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/RemoteApiLog.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/RepairOrder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/RepairOrderHistory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/RepairOrderPrice.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/ResponsibleManager.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Shipping.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/SiteTechnicalServiceCategory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Slider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Subscribe.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Town.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Transaction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Unsubscribe.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Version.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/VirtualMarket.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/VirtualMarketAttribute.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/VirtualMarketBrand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/VirtualMarketCategory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/VirtualMarketCategoryCompare.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/VirtualMarketSetting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Wishlist.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Hepsiburada/HepsiburadaService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Hepsiburada/Request/Attribute.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Hepsiburada/Request/Brand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Hepsiburada/Request/Category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Hepsiburada/Request/Product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Tosla/CreteHashContract.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Tosla/Request/CreateHash.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Tosla/Request/CreatePayment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Tosla/Request/DoPayment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Tosla/Request/PostPayment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Tosla/ToslaService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Trendyol/Request/Attribute.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Trendyol/Request/Brand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Trendyol/Request/Category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Trendyol/Request/Product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Trendyol/TrendyolService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Scopes/TenantScope.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Service/CategoryService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Service/PaymentService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Traits/FormatPrice.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Traits/HasErrors.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Traits/Notification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/banner.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/brand.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/category.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/customer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/ecommerceSetting.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/faq.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/new_product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/detail.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/ecommerce.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/technical.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/technical_detail.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/product/attribute_groups.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/product/attributes.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/slider.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/user.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/virtual_market/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/virtual_market/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/virtual_market/trendyol_attribute_compare.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/virtual_market/trendyol_category_compare.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/checkout_complate.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/basket.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/contact.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/detail.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/information.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/order_tracking.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/profil/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/register.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/sss.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/support_guest.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/orders/completed.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/orders/status.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/sendmail.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/admin/admin.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/admin/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/admin/nav.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/ecommerce/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/ecommerce/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/ecommerce/layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/ecommerce/sidebar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/repair.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/script.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/view.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/allrepairs.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/assurant-device-care.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/contact.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/detail.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/location.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/nav.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/page.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/profil/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/register.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/repair_my_device.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/repairbrand.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/repairs.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/repairversion.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/repair/voucher.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/button.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/message.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/panel.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/subcopy.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/table.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/themes/default.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/button.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/message.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/panel.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/subcopy.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/table.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerConfigs">
+    <option name="configs">
+      <option value="$PROJECT_DIR$/amocart/composer.json" />
+    </option>
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.2.6/bin/php">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/fruitcake/php-cors" />
+      <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/fruitcake/laravel-cors" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/vendor/symfony/uid" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-activitylog" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/vendor/yajra/laravel-datatables-oracle" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/laravel/sail" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-ignition" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem-local" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/league/config" />
+      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-uuid" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-package-tools" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/vendor/laravel/sanctum" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/uri-template" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/vendor/nunomaduro/termwind" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/asm89/stack-cors" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/vendor/spatie/ignition" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/amocart/cart" />
+      <path value="$PROJECT_DIR$/vendor/spatie/mailcoach-sdk-php" />
+      <path value="$PROJECT_DIR$/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/dflydev/dot-access-data" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-newsletter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/laravel/serializable-closure" />
+      <path value="$PROJECT_DIR$/vendor/spatie/backtrace" />
+      <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/nette/schema" />
+      <path value="$PROJECT_DIR$/vendor/carbonphp/carbon-doctrine-types" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/spatie/flare-client-php" />
+    </include_path>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2aMACQ8o0YBgZjOXdrv5wBQchgr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "last_opened_file_path": "/Users/emila/PhpstormProjects/telefonistan/resources/views",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config" />
+      <recent name="$PROJECT_DIR$/resources/views" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/storage/app/public" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-php-predefined-ba97393d7c68-b4dcf6bb9de9-com.jetbrains.php.sharedIndexes-PS-233.13135.108" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fea81975-61e8-4f2e-8ef3-b10cab250d91" name="Changes" comment="" />
+      <created>1704117945656</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704117945656</updated>
+      <workItem from="1704117947030" duration="189000" />
+      <workItem from="1705775553265" duration="8000" />
+      <workItem from="1719345559510" duration="2247000" />
+      <workItem from="1719392862349" duration="6335000" />
+      <workItem from="1719669309997" duration="55000" />
+      <workItem from="1719817713012" duration="1795000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
