@@ -4,233 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fea81975-61e8-4f2e-8ef3-b10cab250d91" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Abstracts/PaymentMethodService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Abstracts/PaymentMethodServiceRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Abstracts/RemoteRestRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Abstracts/VirtualMarketService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Abstracts/VirtualMarketServiceRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/MailTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/MounthDeal.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/PaymentTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/TrendyolBrandCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/TrendyolCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/TrendyolProduct.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Contracts/PaymentMethodServiceContract.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Contracts/VirtualMarketServiceContract.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Events/CheckoutRequested.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Events/OrderCompleted.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Events/OrderRepair.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Events/OrderStatus.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Events/SendEmailEvent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/CategoryHelper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/CustomHelper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/HashHelper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BannerController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BrandController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CustomerController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/EcommerceSettingController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/FaqController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ModelController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductAttributeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SliderController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/VirtualMarketController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ProductController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Ecommerce/EcommerceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Ecommerce/GoogleAuthController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/GoogleAuthController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SubscribeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckEticaretSubdomain.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Language.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/PreventRequestsDuringMaintenance.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfWWW.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustHosts.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Jobs/TrendyolBrand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Jobs/TrendyolCategory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listeners/CreateCustomerIfNotExists.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listeners/OrderRepair.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listeners/SendEmailListener.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listeners/SendOrderCompletedMail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listeners/SendOrderStatusMail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Locators/PaymentServiceLocator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Locators/VirtualMarketServiceLocator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Mail/OrderCompletedMail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Mail/OrderStatusMail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Mail/SendEmail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Attribute.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/AttributeGroup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Banner.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Brand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Cart.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/City.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/CompanyShippingSetting.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Customer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/CustomerAddress.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/CustomerInvoice.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/EcommerceSetting.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Faq.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/MonthlyDeal.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/OrderHistory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/OrderMessage.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/OrderProduct.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/OrderVoucher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Page.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/PaymentMethodSetting.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/RemoteApiLog.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/RepairOrder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/RepairOrderHistory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/RepairOrderPrice.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/ResponsibleManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Shipping.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/SiteTechnicalServiceCategory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Slider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Subscribe.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Town.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Transaction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Unsubscribe.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Version.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/VirtualMarket.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/VirtualMarketAttribute.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/VirtualMarketBrand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/VirtualMarketCategory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/VirtualMarketCategoryCompare.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/VirtualMarketSetting.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Wishlist.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Hepsiburada/HepsiburadaService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Hepsiburada/Request/Attribute.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Hepsiburada/Request/Brand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Hepsiburada/Request/Category.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Hepsiburada/Request/Product.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Tosla/CreteHashContract.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Tosla/Request/CreateHash.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Tosla/Request/CreatePayment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Tosla/Request/DoPayment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Tosla/Request/PostPayment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Tosla/ToslaService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Trendyol/Request/Attribute.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Trendyol/Request/Brand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Trendyol/Request/Category.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Trendyol/Request/Product.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Modules/Trendyol/TrendyolService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Scopes/TenantScope.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Service/CategoryService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Service/PaymentService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Traits/FormatPrice.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Traits/HasErrors.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Traits/Notification.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/banner.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/brand.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/category.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/customer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/ecommerceSetting.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/faq.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/new_product.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/detail.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/ecommerce.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/technical.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/technical_detail.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/product.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/product/attribute_groups.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/product/attributes.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/slider.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/user.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/virtual_market/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/virtual_market/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/virtual_market/trendyol_attribute_compare.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/virtual_market/trendyol_category_compare.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/checkout_complate.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/basket.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/contact.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/detail.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/information.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/order_tracking.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/profil/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/register.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/sss.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ecommerce/support_guest.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/orders/completed.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/orders/status.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/sendmail.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/admin/admin.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/admin/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/admin/nav.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/ecommerce/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/ecommerce/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/ecommerce/layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/ecommerce/sidebar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/repair.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/script.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/view.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/allrepairs.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/assurant-device-care.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/contact.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/detail.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/form.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/location.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/nav.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/page.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/profil/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/register.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/repair_my_device.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/repairbrand.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/repairs.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/repairversion.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/repair/voucher.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/button.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/message.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/panel.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/subcopy.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/table.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/themes/default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/button.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/message.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/panel.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/subcopy.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/table.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="fea81975-61e8-4f2e-8ef3-b10cab250d91" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -343,7 +117,6 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
       <path value="$PROJECT_DIR$/vendor/spatie/ignition" />
       <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/amocart/cart" />
       <path value="$PROJECT_DIR$/vendor/spatie/mailcoach-sdk-php" />
       <path value="$PROJECT_DIR$/vendor/brick/math" />
       <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
@@ -376,6 +149,7 @@
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/vendor/spatie/flare-client-php" />
+      <path value="$PROJECT_DIR$/vendor/amocart/cart" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -398,7 +172,7 @@
     "WebServerToolWindowPanel.toolwindow.show.date": "false",
     "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
     "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "last_opened_file_path": "/Users/emila/PhpstormProjects/telefonistan/resources/views",
+    "last_opened_file_path": "/Users/emila/PhpstormProjects/telefonistan/config",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -442,7 +216,7 @@
       <workItem from="1719345559510" duration="2247000" />
       <workItem from="1719392862349" duration="6335000" />
       <workItem from="1719669309997" duration="55000" />
-      <workItem from="1719817713012" duration="1795000" />
+      <workItem from="1719817713012" duration="3955000" />
     </task>
     <servers />
   </component>
