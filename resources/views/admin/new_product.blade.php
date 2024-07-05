@@ -170,7 +170,7 @@
                                 <div class="card adaptable-card mb-4">
                                     <div class="card-body">
                                         <h5>Urun Resimleri</h5>
-                                        <p class="mb-6">Oncelikle default resim yukleyiniz</p>
+                                        <p class="mb-6">Oncelikle varsayilan resim yukleyiniz</p>
                                         <div class="form-item vertical">
                                             <label class="form-label"></label>
                                             <div>
@@ -179,19 +179,19 @@
                                                     <div class="my-16 text-center">
                                                         <img src="img/others/upload.png" alt="" class="mx-auto">
                                                         <p class="font-semibold">
-                                                            <span class="text-gray-800 dark:text-white">Default ImageDrop your image here, or</span>
+                                                            <span class="text-gray-800 dark:text-white">Varsayilan Fotograf</span>
                                                             <span class="text-blue-500">browse</span>
                                                         </p>
-                                                        <p class="mt-1 opacity-60 dark:text-white">Support: jpeg,
-                                                            png</p>
+                                                        <p class="mt-1 opacity-60 dark:text-white">Desteklenen: jpeg,png</p>
                                                     </div>
                                                 </div>
                                                 <div class="form-item vertical"><label class="form-label"></label>
                                                     <div class="">
                                                         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4">
 
-                                                            <div class="group relative rounded border p-2 flex"><img  class="rounded max-h-[140px] max-w-full"  src="@if(isset($product))  {{$product->img}}  @endif" alt="image-2">
-                                                                <div  class="absolute inset-2 bg-gray-900/[.7] group-hover:flex hidden text-xl items-center justify-center">
+                                                            <div class="group relative rounded border p-2 flex">
+                                                                   <img  class="rounded max-h-[140px] max-w-full"  src="@if(isset($product))  {{$product->img}} @else {{asset('admin/img/others/upload.png')}} @endif" alt="image-2">
+                                                                  <div  class="absolute inset-2 bg-gray-900/[.7] group-hover:flex hidden text-xl items-center justify-center">
                                                                 </div>
                                                             </div>
 
@@ -206,7 +206,7 @@
                                                                 <input class="upload-input draggable" type="file"  name="imgList[]" value="" multiple>
                                                                 <div class="max-w-full flex flex-col px-4 py-2 justify-center items-center">
                                                                     <img src="/img/others/upload.png" alt="">
-                                                                    <p class="font-semibold text-center text-gray-800 dark:text-white">Other Image</p></div>
+                                                                    <p class="font-semibold text-center text-gray-800 dark:text-white">Diger Fotograflar</p></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -253,7 +253,7 @@
                         <div id="stickyFooter"
                              class="sticky -bottom-1 -mx-8 px-8 flex items-center justify-end py-4  dark:bg-gray-800 border-gray-200 dark:border-gray-700">
                             <div class="md:flex items-center">
-                                <button class="btn btn-default btn-sm ltr:mr-2 rtl:ml-2" type="button">Discard</button>
+                                <a href="{{route('product.index')}}" class="btn btn-default btn-sm ltr:mr-2 rtl:ml-2" type="button">Kapat</a>
                                 <button class="btn btn-solid btn-sm" type="submit">
                                     <span class="flex items-center justify-center">
                                         <span class="text-lg">

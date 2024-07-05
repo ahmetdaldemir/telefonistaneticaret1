@@ -3,6 +3,10 @@
 namespace app\Modules\Hepsiburada;
 
 use App\Abstracts\VirtualMarketService;
+use App\Modules\Hepsiburada\Request\Attribute;
+use App\Modules\Hepsiburada\Request\Brand;
+use App\Modules\Hepsiburada\Request\Category;
+use App\Modules\Hepsiburada\Request\Product;
 
 class HepsiburadaService extends  VirtualMarketService
 {

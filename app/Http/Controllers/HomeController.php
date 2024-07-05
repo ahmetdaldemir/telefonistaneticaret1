@@ -64,11 +64,25 @@ class HomeController extends Controller
         $data['2'] = '';
         $data['name'] = $request->name;
         $data['versions'] = Version::where('brand_id', $request->id)->get();
-        $cache = Cache::get(Session::getId());
-        $array = [
-            'type' => $cache['type'],
-            'brand_id' => $request->id,
-        ];
+
+        $sessionId = Session::getId();
+        $cache = Cache::get($sessionId);
+
+        if ($cache) {
+            $array = [
+                'type' => $cache['type'],
+                'brand_id' => $request->id,
+            ];
+        } else {
+            // Handle the case where the cache is empty or does not exist
+            $array = [
+                'type' => 'phone', // Provide a default type or handle as necessary
+                'brand_id' => $request->id,
+            ];
+
+            // Optionally, you can set the cache here if needed
+            Cache::put($sessionId, $array, now()->addMinutes(30)); // Adjust the duration as needed
+        }
 
         Cache::put(Session::getId(), $array);
 

@@ -6,6 +6,8 @@ use App\Modules\Trendyol\Request\Attribute;
 use App\Modules\Trendyol\Request\Brand;
 use App\Modules\Trendyol\Request\Category;
 use App\Modules\Trendyol\Request\Product;
+use App\Modules\Trendyol\Request\UpdateSingleProductTrendyol;
+use Illuminate\Http\Request;
 
 class TrendyolService extends VirtualMarketService
 {
@@ -40,6 +42,25 @@ class TrendyolService extends VirtualMarketService
         $path = "https://api.trendyol.com/sapigw/suppliers/{$supplierId}/v2/products";
         $type = "rest";
         return new Product($this, $method, $path, $type,$product);
+    }
+
+    public function updatePriceAndInventory(Product $product,$supplierId): UpdateSingleProductTrendyol
+    {
+        $method = "POST";
+        $path = "suppliers/{$supplierId}/products/price-and-inventory";
+        $type = "rest";
+        $payload = [
+            "items" => [
+                [
+                    "barcode" => $product->barcode,
+                    "quantity" => $product->quantity,
+                    "salePrice" => $product->salePrice,
+                    "listPrice" => $product->listPrice
+                ]
+            ]
+        ];
+
+        return new UpdateSingleProductTrendyol($this, $method, $path, $type,$payload);
     }
 
 }

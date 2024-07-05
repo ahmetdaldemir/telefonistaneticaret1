@@ -1,7 +1,7 @@
 <div class="side-nav side-nav-light side-nav-expand">
     <div class="side-nav-header">
         <div class="logo px-6">
-            <img src="https://adminnew.phonehospital.com.tr/adminimg/logo/logo-light-full.png" alt="Elstar logo">
+            <img src="https://adminnew.phonehospital.com.tr/admin/img/logo/logo-light-full.png" alt="Elstar logo">
         </div>
     </div>
     <div class="side-nav-content relative side-nav-scroll ps">

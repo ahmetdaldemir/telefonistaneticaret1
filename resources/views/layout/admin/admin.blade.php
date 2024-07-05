@@ -75,7 +75,7 @@
                                 <div class="dropdown-toggle" id="nav-lang-dropdown" data-bs-toggle="dropdown">
                                     <div class="header-action-item header-action-item-hoverable flex items-center">
 												<span class="avatar avatar-circle" data-avatar-size="24">
-													<img class="avatar-img avatar-circle" src="img/countries/us.png"
+													<img class="avatar-img avatar-circle" src="{{asset('admin/img/countries/us.png')}}"
                                                          loading="lazy" alt="">
 												</span>
                                     </div>
@@ -84,7 +84,7 @@
                                     <li class="menu-item menu-item-hoverable mb-1 justify-between h-[35px]">
 												<span class="flex items-center">
 													<span class="avatar avatar-circle" data-avatar-size="18">
-														<img class="avatar-img avatar-circle" src="img/countries/us.png"
+														<img class="avatar-img avatar-circle" src="{{asset('admin/img/countries/us.png')}}"
                                                              loading="lazy" alt="">
 													</span>
 													<span class="ltr:ml-2 rtl:mr-2">English</span>
@@ -335,7 +335,7 @@
                                     <div class="header-action-item flex items-center gap-2">
 												<span class="avatar avatar-circle" data-avatar-size="32"
                                                       style="width: 32px">
-												<img class="avatar-img avatar-circle" src="img/avatars/thumb-1.jpg"
+												<img class="avatar-img avatar-circle" src="{{asset('admin/img/avatars/thumb-1.jpg')}}"
                                                      loading="lazy" alt=""></span>
                                         <div class="hidden md:block">
                                             <div class="text-xs capitalize">admin</div>
@@ -348,13 +348,13 @@
                                         <div class="py-2 px-3 flex items-center gap-2">
 													<span class="avatar avatar-circle avatar-md">
 														<img class="avatar-img avatar-circle"
-                                                             src="img/avatars/thumb-1.jpg" loading="lazy" alt="">
+                                                             src="{{asset('admin/img/avatars/thumb-1.jpg')}}" loading="lazy" alt="">
 													</span>
                                             <div>
                                                 <div class="font-bold text-gray-900 dark:text-gray-100">Carolyn
                                                     Perkins
                                                 </div>
-                                                <div class="text-xs">carolyn.p@elstar.com</div>
+                                                <div class="text-xs">info@elstar.com</div>
                                             </div>
                                         </div>
                                     </li>

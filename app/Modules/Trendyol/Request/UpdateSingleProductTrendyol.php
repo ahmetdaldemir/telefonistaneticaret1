@@ -1,17 +1,28 @@
 <?php
 
-namespace app\Modules\Trendyol\Request;
+namespace App\Modules\Trendyol\Request;
 
-use App\Abstracts\VirtualMarketServiceRequest;
-use App\Modules\Trendyol\TrendyolService;
+use app\Abstracts\VirtualMarketServiceRequest;
+use app\Modules\Trendyol\TrendyolService;
 use JetBrains\PhpStorm\NoReturn;
 
-final class Product extends VirtualMarketServiceRequest
+class UpdateSingleProductTrendyol extends VirtualMarketServiceRequest
 {
+
+
+    /**
+     * @param TrendyolService $param
+     * @param string $method
+     * @param string $path
+     * @param string $type
+     * @param array[] $payload
+     */
+
+
 
     protected $base_uri;
     protected $path;
-    public $product;
+    public array $payload;
     protected $method;
     protected $type;
     protected $options = [
@@ -26,14 +37,13 @@ final class Product extends VirtualMarketServiceRequest
         ],
     ];
 
-
-    public function __construct(TrendyolService $trendyolService, $method, $path, $type,$product)
+    public function __construct(TrendyolService $trendyolService, string $method, string $path, string $type, array $payload)
     {
         $this->path = $path;
         $this->base_uri = env('TRENDYOL_URL');
         $this->method = $method;
         $this->type = $type;
-        $this->options['body'] = json_encode($product);
+        $this->options['body'] = json_encode($payload);
 
         $username = $trendyolService->getUsername();
         $password = $trendyolService->getPassword();
@@ -42,11 +52,11 @@ final class Product extends VirtualMarketServiceRequest
         $this->options['header']['Authorization']= 'Basic '.$base64Credentials;
         $this->options['header']['User-Agent']= ''.$trendyolService->getClientId().' - SelfIntegration';
         $this->options['header']['Content-Type']= 'application/json';
-      //  $this->options['headers']['Authorization'] = 'Basic '.$auth.'';
+        //  $this->options['headers']['Authorization'] = 'Basic '.$auth.'';
 
         parent::__construct($trendyolService);
-
     }
+
 
     #[NoReturn] protected function onSuccess(): void
     {
@@ -70,5 +80,4 @@ final class Product extends VirtualMarketServiceRequest
     }
 
 
-
- }
+}
