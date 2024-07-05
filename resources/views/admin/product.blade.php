@@ -57,7 +57,7 @@
                                         <td>
                                             <div class="flex items-center gap-2">
                                                 <span class="badge-dot bg-emerald-500"></span>
-                                                <span class="capitalize font-semibold text-emerald-500">In Stock</span>
+                                                <span class="capitalize font-semibold text-emerald-500">{{$product->stock}}</span>
                                             </div>
                                         </td>
                                         <td>

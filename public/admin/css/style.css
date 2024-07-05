@@ -10135,3 +10135,17 @@ hr{
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
+
+
+.flex-container {
+  display: flex;
+  width: 300px;                 /* Genişliği belirler */
+  border: 1px solid #000;       /* Sadece görsel anlamda sınırı belirlemek için */
+}
+
+.flex-item {
+  white-space: nowrap;          /* Metni tek satırda tutar */
+  overflow: hidden;             /* Taşan kısmı gizler */
+  text-overflow: ellipsis;      /* Fazla metni "..." ile gösterir */
+  flex: 1;                      /* Flex item genişliğini konteynır genişliğine göre ayarlar */
+}

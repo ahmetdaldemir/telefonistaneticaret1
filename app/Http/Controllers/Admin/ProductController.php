@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\MonthlyDeal;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -186,9 +187,34 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        MonthlyDeal::where('product_id',$request->id)->delete();
+       $product = Product::find($request->id);
+
+        $path = $product->img; // Replace with your actual path
+        $pathmulti = $product->images; // Replace with your actual path
+
+// Using Storage facade
+        if (Storage::disk('product_images')->exists($path)) {
+            Storage::disk('product_images')->delete($path);
+            // Optionally, delete from database or do other clean-up
+        }
+
+        if($pathmulti)
+        {
+            foreach ($pathmulti as $image)
+            {
+                if (Storage::disk('product_images')->exists($image)) {
+                    Storage::disk('product_images')->delete($image);
+                }
+            }
+        }
+
+       $product->delete();
+
+
+       return redirect()->back();
     }
 
     public function mounthdeal($id,$status)

@@ -24,7 +24,7 @@ class VirtualMarketController extends Controller
      */
     public function index()
     {
-        $data['virtualMarkets'] = VirtualMarket::all();
+        $data['virtualMarkets'] = VirtualMarketSetting::where('company_id',auth()->guard('admin')->user()->company_id)->get();
         return view('admin/virtual_market/index', $data);
     }
 

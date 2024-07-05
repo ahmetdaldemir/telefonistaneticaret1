@@ -56,7 +56,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
                                     </span>
-                                    <span>Yeni Slider</span>
+                                    <span>Yeni Sanal Pazar</span>
                                 </span>
                             </button>
                         </div>
@@ -75,8 +75,12 @@
                                     <tr>
 
                                         <td>{{$virtualMarket->id}}</td>
-                                        <td>{{$virtualMarket->name}}</td>
-                                        <td>{{json_encode($virtualMarket->settingFields)}}</td>
+                                        <td>{{$virtualMarket->virtualMarket->name}}</td>
+                                        <td>
+                                            <div class="flex-container">
+                                                <div class="flex-item"> {{json_encode($virtualMarket->settings)}}</div>
+                                            </div>
+                                           </td>
                                         <td>
                                             <div class="flex justify-end text-lg">
 

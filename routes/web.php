@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\EcommerceSettingController;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\ModelController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductAttributeController;
@@ -31,9 +32,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-    Route::get('/paymenttest', function () {
-        \Illuminate\Support\Facades\Artisan::call('payment:test');
-    });
+Route::get('/paymenttest', function () {
+    \Illuminate\Support\Facades\Artisan::call('payment:test');
+});
 
 Route::domain('telefonistan.com')->group(function () {
 
@@ -73,10 +74,12 @@ Route::domain('telefonistan.com')->group(function () {
 
 Route::post('paymentCallback', [EcommerceController::class, 'checkout_complate'])->name('paymentCallback');
 
-Route::domain('adminnew.telefonistan.com')->group(function () {
-    Route::get('/', [AdminController::class, 'index']);
 
-    Route::prefix('brand')->name('brand.')->middleware([])->group(function () {
+Route::domain('adminnew.telefonistan.com')->group(function () {
+    Route::get('dashboard', [AdminController::class, 'index'])->middleware(['admin'])->name('dashboard');
+    Route::get('adminlogin', [LoginController::class, 'adminlogin'])->name('adminlogin');
+    Route::post('authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
+    Route::prefix('brand')->name('brand.')->middleware(['admin'])->group(function () {
         Route::get('/', [BrandController::class, 'index'])->name('index');
         Route::get('edit', [BrandController::class, 'edit'])->name('edit');
         Route::get('get', [BrandController::class, 'show'])->name('get');
@@ -85,7 +88,7 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
         Route::post('update', [BrandController::class, 'update'])->name('update');
     });
 
-    Route::prefix('product')->name('product.')->middleware([])->group(function () {
+    Route::prefix('product')->name('product.')->middleware(['admin'])->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name('index');
         Route::get('edit', [ProductController::class, 'edit'])->name('edit');
         Route::get('create', [ProductController::class, 'create'])->name('create');
@@ -97,7 +100,7 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
     });
 
 
-    Route::prefix('model')->name('model.')->middleware([])->group(function () {
+    Route::prefix('model')->name('model.')->middleware(['admin'])->group(function () {
         Route::get('/', [ModelController::class, 'index'])->name('index');
         Route::get('edit', [ModelController::class, 'edit'])->name('edit');
         Route::get('get', [ModelController::class, 'show'])->name('get');
@@ -107,7 +110,7 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
         Route::post('update', [ModelController::class, 'update'])->name('update');
     });
 
-    Route::prefix('slider')->name('slider.')->middleware([])->group(function () {
+    Route::prefix('slider')->name('slider.')->middleware(['admin'])->group(function () {
         Route::get('/', [SliderController::class, 'index'])->name('index');
         Route::get('edit', [SliderController::class, 'edit'])->name('edit');
         Route::get('get', [SliderController::class, 'show'])->name('get');
@@ -118,7 +121,7 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
 
     });
 
-    Route::prefix('banner')->name('banner.')->middleware([])->group(function () {
+    Route::prefix('banner')->name('banner.')->middleware(['admin'])->group(function () {
         Route::get('/', [BannerController::class, 'index'])->name('index');
         Route::get('edit', [BannerController::class, 'edit'])->name('edit');
         Route::get('get', [BannerController::class, 'show'])->name('get');
@@ -129,7 +132,7 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
 
     });
 
-    Route::prefix('ecommerceSetting')->name('ecommerceSetting.')->middleware([])->group(function () {
+    Route::prefix('ecommerceSetting')->name('ecommerceSetting.')->middleware(['admin'])->group(function () {
         Route::get('/', [EcommerceSettingController::class, 'index'])->name('index');
         Route::get('get', [EcommerceSettingController::class, 'show'])->name('get');
         Route::post('store', [EcommerceSettingController::class, 'store'])->name('store');
@@ -138,7 +141,7 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
 
     });
 
-    Route::prefix('category')->name('category.')->middleware([])->group(function () {
+    Route::prefix('category')->name('category.')->middleware(['admin'])->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('index');
         Route::get('get', [CategoryController::class, 'show'])->name('get');
         Route::post('store', [CategoryController::class, 'store'])->name('store');
@@ -149,7 +152,7 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
     });
 
 
-    Route::prefix('faq')->name('faq.')->middleware([])->group(function () {
+    Route::prefix('faq')->name('faq.')->middleware(['admin'])->group(function () {
         Route::get('/', [FaqController::class, 'index'])->name('index');
         Route::get('get', [FaqController::class, 'show'])->name('get');
         Route::post('store', [FaqController::class, 'store'])->name('store');
@@ -159,7 +162,7 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
     });
 
 
-    Route::prefix('product_attribute')->name('product_attribute.')->middleware([])->group(function () {
+    Route::prefix('product_attribute')->name('product_attribute.')->middleware(['admin'])->group(function () {
         Route::prefix('group')->name('group.')->middleware([])->group(function () {
             Route::get('/', [ProductAttributeController::class, 'index'])->name('index');
             Route::get('get', [ProductAttributeController::class, 'product_attribute_group_show'])->name('get');
@@ -177,7 +180,7 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
     });
 
 
-    Route::prefix('order')->name('order.')->middleware([])->group(function () {
+    Route::prefix('order')->name('order.')->middleware(['admin'])->group(function () {
         Route::get('/', [OrderController::class, 'index'])->name('index');
         Route::get('ecommerce', [OrderController::class, 'ecommerce'])->name('ecommerce');
         Route::get('technical', [OrderController::class, 'technical'])->name('technical');
@@ -189,7 +192,7 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
     });
 
 
-    Route::prefix('user')->name('user.')->middleware([])->group(function () {
+    Route::prefix('user')->name('user.')->middleware(['admin'])->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('index');
         Route::get('getUsers', [UserController::class, 'getUsers'])->name('getUsers');
         Route::post('store', [UserController::class, 'store'])->name('store');
@@ -197,7 +200,7 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
         Route::put('statusupdate', [UserController::class, 'statusupdate'])->name('statusupdate');
     });
 
-    Route::prefix('customer')->name('customer.')->middleware([])->group(function () {
+    Route::prefix('customer')->name('customer.')->middleware(['admin'])->group(function () {
         Route::get('/', [CustomerController::class, 'index'])->name('index');
         Route::get('getcustomers', [CustomerController::class, 'getcustomers'])->name('getcustomers');
         Route::post('store', [CustomerController::class, 'store'])->name('store');
@@ -206,7 +209,7 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
     });
 
 
-    Route::prefix('virtual_market')->name('virtual_market.')->middleware([])->group(function () {
+    Route::prefix('virtual_market')->name('virtual_market.')->middleware(['admin'])->group(function () {
         Route::get('/', [VirtualMarketController::class, 'index'])->name('index');
         Route::get('show', [VirtualMarketController::class, 'show'])->name('show');
         Route::post('store', [VirtualMarketController::class, 'store'])->name('store');

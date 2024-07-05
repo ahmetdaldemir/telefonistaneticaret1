@@ -175,7 +175,7 @@
                                                 <div>
 															<span class="avatar avatar-circle avatar-md">
 																<img class="avatar-img avatar-circle"
-                                                                     src="img/avatars/thumb-8.jpg" loading="lazy"
+                                                                     src="{{asset('img/avatars/thumb-8.jpg')}}" loading="lazy"
                                                                      alt="">
 															</span>
                                                 </div>
@@ -339,7 +339,7 @@
                                                      loading="lazy" alt=""></span>
                                         <div class="hidden md:block">
                                             <div class="text-xs capitalize">admin</div>
-                                            <div class="font-bold">Carolyn Perkins</div>
+                                            <div class="font-bold">{{auth()->guard('admin')->user()->name}}</div>
                                         </div>
                                     </div>
                                 </div>
