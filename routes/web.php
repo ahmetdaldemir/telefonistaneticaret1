@@ -180,16 +180,17 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
     });
 
 
+
     Route::prefix('order')->name('order.')->middleware(['admin'])->group(function () {
         Route::get('/', [OrderController::class, 'index'])->name('index');
         Route::get('ecommerce', [OrderController::class, 'ecommerce'])->name('ecommerce');
-        Route::get('technical', [OrderController::class, 'technical'])->name('technical');
-        Route::post('technicalUpdate', [OrderController::class, 'technicalUpdate'])->name('technicalUpdate');
-        Route::get('technicalOrder_detail', [OrderController::class, 'technicalOrder_detail'])->name('technicalOrder_detail');
-        Route::get('technicalOrder_status', [OrderController::class, 'technicalOrder_status'])->name('technicalOrder_status');
+          Route::post('update', [OrderController::class, 'update'])->name('update');
+         Route::get('detail', [OrderController::class, 'detail'])->name('detail');
+         Route::get('status', [OrderController::class, 'status'])->name('status');
         Route::get('delete', [OrderController::class, 'destroy'])->name('delete');
 
     });
+
 
 
     Route::prefix('user')->name('user.')->middleware(['admin'])->group(function () {

@@ -32,7 +32,7 @@
                                     <div class="flex items-center justify-between mb-6">
                                         <div class="flex items-center">
                                                 <span class="avatar avatar-rounded avatar-lg" data-avatar-size="60" style="width: 60px; height: 60px; min-width: 60px; line-height: 60px;">
-                                                    <img class="avatar-img avatar-rounded" src="img/others/img-11.jpg" loading="lazy">
+                                                    <img class="avatar-img avatar-rounded" src="{{asset('admin/img/others/upload.png')}}" loading="lazy">
                                                 </span>
                                             <div class="ltr:ml-2 rtl:mr-2">
                                                 <h6>FedEx</h6><span>Delivery in 1 ~ 3 days</span>
@@ -108,7 +108,7 @@
                                 <a class="group flex items-center justify-between" href="#">
                                     <div class="flex items-center">
                                         <span class="avatar avatar-circle avatar-md">
-                                            <img class="avatar-img avatar-circle" src="img/avatars/thumb-11.jpg" loading="lazy">
+                                            <img class="avatar-img avatar-circle" src="{{asset('admin/img/avatars/thumb-1.jpg')}}" loading="lazy">
                                         </span>
                                         <div class="ltr:ml-2 rtl:mr-2">
                                             <div class="font-semibold group-hover:text-gray-900 group-hover:dark:text-gray-100">

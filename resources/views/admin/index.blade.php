@@ -53,7 +53,7 @@
                         <div class="card card-layout-frame">
                             <div class="card-body">
                                 <div class="flex items-center justify-between mb-6">
-                                    <h4>Yeni Siparisler</h4>
+                                    <h4>Yeni Siparişler</h4>
                                     <button class="btn btn-default btn-sm">Tumunu Goruntule</button>
                                 </div>
                                 <div class="overflow-x-auto">
@@ -67,9 +67,10 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($orders as $order)
                                         <tr>
                                             <td>
-                                                <a class="hover:underline font-semibold" href="#">KCM-1393</a>
+                                                <a class="hover:underline font-semibold" href="#">{{$order}}</a>
                                             </td>
                                             <td>Design sign up flow</td>
                                             <td>
@@ -88,7 +89,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>

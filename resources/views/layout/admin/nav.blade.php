@@ -79,11 +79,7 @@
                                 </a>
                             </li>
 
-                            <li data-menu-item="classic-sales-dashboard" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="{{route('order.technical')}}">
-                                    <span>Teknik Siparisler</span>
-                                </a>
-                            </li>
+
 
                             <li data-menu-item="classic-product-list" class="menu-item">
                                 <a class="h-full w-full flex items-center" href="classic-product-list.html">
