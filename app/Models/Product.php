@@ -35,7 +35,19 @@ class Product extends Model{
         return asset('storage/images/' . $value);
     }
 
+    public function productVirtualSetting()
+    {
+        return $this->hasMany(ProductVirtualSetting::class);
+    }
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($product) {
+            $product->productVirtualSetting()->delete();
+        });
+    }
 }
 
 

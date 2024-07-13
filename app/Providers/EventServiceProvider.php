@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Events\OrderCompleted;
 use App\Events\OrderRepair;
 use App\Events\OrderStatus;
+use App\Events\Product;
+use App\Listeners\SaveProductAttributes;
 use App\Listeners\SendOrderCompletedMail;
 use App\Listeners\SendOrderStatusMail;
 use Illuminate\Auth\Events\Registered;
@@ -35,6 +37,9 @@ class EventServiceProvider extends ServiceProvider
         OrderStatus::class => [
             SendOrderStatusMail::class,
         ],
+        Product::class => [
+            SaveProductAttributes::class,
+        ],
     ];
 
     /**
@@ -44,6 +49,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        parent::boot();
+
     }
 }

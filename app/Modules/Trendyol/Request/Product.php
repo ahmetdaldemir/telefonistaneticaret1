@@ -39,10 +39,11 @@ final class Product extends VirtualMarketServiceRequest
         $password = $trendyolService->getPassword();
         $credentials = $username . ':' . $password;
         $base64Credentials = base64_encode($credentials);
-        $this->options['header']['Authorization']= 'Basic '.$base64Credentials;
-        $this->options['header']['User-Agent']= ''.$trendyolService->getClientId().' - SelfIntegration';
-        $this->options['header']['Content-Type']= 'application/json';
-      //  $this->options['headers']['Authorization'] = 'Basic '.$auth.'';
+
+        $this->options['headers']['Authorization'] = 'Basic '.$base64Credentials;
+        $this->options['headers']['User-Agent'] = ''.$trendyolService->getClientId().' - SelfIntegration';
+
+        //  $this->options['headers']['Authorization'] = 'Basic '.$auth.'';
 
         parent::__construct($trendyolService);
 
@@ -50,7 +51,7 @@ final class Product extends VirtualMarketServiceRequest
 
     #[NoReturn] protected function onSuccess(): void
     {
-        $content = json_decode($this->getContent(),true);
+        $content =  (array)$this->getContent();
         $this->setContents($content);
     }
 
@@ -64,7 +65,7 @@ final class Product extends VirtualMarketServiceRequest
         $this->content = $content;
     }
 
-    public function getContents():array
+    public function getContents()
     {
         return $this->content;
     }

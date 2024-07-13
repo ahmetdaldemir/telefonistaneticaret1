@@ -69,6 +69,7 @@
                                     <th>ID</th>
                                     <th>Kategori</th>
                                     <th>Üst Kategori</th>
+                                    <th>V. Kat. ID</th>
                                     <th>İşlemler</th>
                                 </tr>
                                 </thead>

@@ -120,7 +120,7 @@
                                                 <div class="form-item vertical">
                                                     <label class="form-label mb-2">Kategori</label>
                                                     <div>
-                                                        <select class="input" name="category">
+                                                        <select class="input" name="category" id="category">
                                                             @foreach($categories as $item)
                                                                 <option value="{{$item->id}}"
                                                                         @if(isset($product) && $item->category == $product->category) selected @endif>{{$item->name}}</option>
@@ -247,6 +247,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="jsonBrandBody"></div>
+                                    <div class="jsonCategoryBody"></div>
+
                                 </div>
                             </div>
                         </div>

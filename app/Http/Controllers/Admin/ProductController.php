@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Console\Commands\MounthDeal;
 use App\Http\Controllers\Controller;
 use App\Models\AttributeGroup;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\MonthlyDeal;
 use App\Models\Product;
+use App\Models\VirtualMarketCategoryCompare;
+use App\Service\TrendyolOutService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-
+use App\Events\Product as ProductEvent;
 class ProductController extends Controller
 {
     /**
@@ -134,6 +138,17 @@ class ProductController extends Controller
         $product->bundle = $bundle;
         $product->product_attribute = $attributesList;
         $product->save();
+
+        // Attribute ve attributeValue verilerini al
+        $brand = $request->virtualBrand;
+        $attributes = $request->virtualAttribute;
+        $attributeValues = $request->virtualAttributeValue;
+
+        // Event'i tetikle
+        event(new ProductEvent($product,$brand, $attributes, $attributeValues));
+
+
+
         return redirect()->back();
     }
 
@@ -185,37 +200,48 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Request $request)
     {
-        MonthlyDeal::where('product_id',$request->id)->delete();
-       $product = Product::find($request->id);
+        $product = Product::find($request->id);
+        $product->productVirtualSetting()->delete();
 
-        $path = $product->img; // Replace with your actual path
-        $pathmulti = $product->images; // Replace with your actual path
-
-// Using Storage facade
-        if (Storage::disk('product_images')->exists($path)) {
-            Storage::disk('product_images')->delete($path);
-            // Optionally, delete from database or do other clean-up
-        }
-
-        if($pathmulti)
+        if($product)
         {
-            foreach ($pathmulti as $image)
+            /* Default Image Delete */
+
+            if($product->img)
             {
-                if (Storage::disk('product_images')->exists($image)) {
-                    Storage::disk('product_images')->delete($image);
+                $explode = explode('/', $product->img);
+                $lastElement = end($explode);
+
+                if (Storage::disk('local')->exists('images/'.$lastElement)) {
+                    Storage::disk('local')->delete('images/'.$lastElement);
                 }
             }
+            /* Default Image Delete */
+
+            /* Detaıl Image Delete */
+
+            if($product->imgList){
+                foreach ($product->imgList as $item)
+                {
+                    if (Storage::disk('local')->exists('images/'.$item)) {
+                        Storage::disk('local')->delete('images/'.$item);
+                    }
+                }
+            }
+
+            /* Default Image Delete */
+            MonthlyDeal::where('product_id',$request->id)->delete();
+            $product->delete();
         }
 
-       $product->delete();
 
-
-       return redirect()->back();
+        return redirect()->back();
     }
+
 
     public function mounthdeal($id,$status)
     {
@@ -234,5 +260,23 @@ class ProductController extends Controller
     }
 
 
+    public function getVirtualBrandList(Request $request)
+    {
+        $brand = Brand::find($request->id);
+        $name = $brand->name;
+        $trndyolOutService = new TrendyolOutService();
+        $brandservice = $trndyolOutService->brandSingle($name);
+        return response()->json($brandservice, 200);
+    }
 
+    public function getVirtualAttributeList(Request $request)
+    {
+        $attributeService = [];
+        $xx = VirtualMarketCategoryCompare::where('category_id', $request->id)->where('virtual_market_setting_id', 1)->first();
+        if ($xx) {
+            $trndyolOutService = new TrendyolOutService();
+            $attributeService = $trndyolOutService->attributeSingle($xx->virtual_market_category_id);
+        }
+        return response()->json($attributeService, 200);
+    }
 }

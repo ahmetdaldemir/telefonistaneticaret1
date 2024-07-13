@@ -4,19 +4,21 @@ namespace App\Modules\Trendyol\Request;
 
 use App\Abstracts\VirtualMarketServiceRequest;
 use App\Modules\Trendyol\TrendyolService;
+use GuzzleHttp\HandlerStack;
 use JetBrains\PhpStorm\NoReturn;
 
-final class Attribute extends VirtualMarketServiceRequest
+final class BrandSingle extends VirtualMarketServiceRequest
 {
 
     protected $base_uri;
     protected $path;
-    public $attributes;
+    public $brand;
     protected $method;
     protected $type;
     protected $options = [
         'verify' => false,
-        'debug' => false,
+        'debug' => FALSE,
+
         'timeout' => 10,
         'connect_timeout' => 1.5,
         'decode_content' => false,
@@ -34,6 +36,8 @@ final class Attribute extends VirtualMarketServiceRequest
         $this->method = $method;
         $this->type = $type;
         $this->options['body'] = '';
+        $stack = HandlerStack::create();
+        $this->options['handler'] = $stack;
 
         $username = $trendyolService->getUsername();
         $password = $trendyolService->getPassword();
@@ -45,13 +49,10 @@ final class Attribute extends VirtualMarketServiceRequest
 
     }
 
-
-
-
     #[NoReturn] protected function onSuccess(): void
     {
         $content = json_decode($this->getContent(),true);
-        $this->setAttribute($content);
+        $this->setBrand($content);
     }
 
     protected function onError(): void
@@ -59,24 +60,14 @@ final class Attribute extends VirtualMarketServiceRequest
         $this->getErrors();
     }
 
-    public function setAttribute($category):void
+    public function setBrand($brand):void
     {
-        $this->attributes = $category;
+        $this->brands = $brand;
     }
 
-    public function getAttribute():array
+    public function getBrand():array
     {
-        return $this->attributes??[];
+        return $this->brands??[];
     }
 
-    private function setOrderId(string $orderId)
-    {
-        $this->orderId = $orderId;
-    }
-
-
-    public function getOrderId(): string
-    {
-        return $this->orderId;
-    }
  }

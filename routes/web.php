@@ -97,6 +97,8 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
         Route::post('store', [ProductController::class, 'store'])->name('store');
         Route::post('update/{id}', [ProductController::class, 'update'])->name('update');
         Route::post('mounthdeal/{id}/{status}', [ProductController::class, 'mounthdeal'])->name('mounthdeal');
+        Route::post('getVirtualBrandList', [ProductController::class, 'getVirtualBrandList'])->name('getVirtualBrandList');
+        Route::post('getVirtualAttributeList', [ProductController::class, 'getVirtualAttributeList'])->name('getVirtualAttributeList');
     });
 
 

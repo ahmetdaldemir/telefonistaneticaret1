@@ -4,6 +4,7 @@ use App\Abstracts\VirtualMarketService;
 use App\Models\VirtualMarketSetting;
 use App\Modules\Trendyol\Request\Attribute;
 use App\Modules\Trendyol\Request\Brand;
+use App\Modules\Trendyol\Request\BrandSingle;
 use App\Modules\Trendyol\Request\Category;
 use App\Modules\Trendyol\Request\Product;
 use App\Modules\Trendyol\Request\UpdateSingleProductTrendyol;
@@ -44,6 +45,14 @@ class TrendyolService extends VirtualMarketService
         return new Product($this, $method, $path, $type,$product);
     }
 
+    public function getProduct(array $product,$supplierId): Product
+    {
+        $method = "POST";
+        $path = "https://api.trendyol.com/sapigw/suppliers/{$supplierId}/v2/products";
+        $type = "rest";
+        return new Product($this, $method, $path, $type,$product);
+    }
+
     public function updatePriceAndInventory(Product $product,$supplierId): UpdateSingleProductTrendyol
     {
         $method = "POST";
@@ -61,6 +70,14 @@ class TrendyolService extends VirtualMarketService
         ];
 
         return new UpdateSingleProductTrendyol($this, $method, $path, $type,$payload);
+    }
+
+    public function getBrandSingle($name): BrandSingle
+    {
+        $method = "GET";
+        $path = "brands/by-name?name={$name}";
+        $type = "rest";
+        return new BrandSingle($this, $method, $path, $type);
     }
 
 }

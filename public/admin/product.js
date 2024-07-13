@@ -95,5 +95,93 @@ $('#product-list-data-table').on('change', '#freeShipping', function () {
 })
 
 
+$('#brand').change(function () {
+    $('.jsonBody').empty();
+    var val = $(this).val();
+    var csrfToken = $('meta[name="csrf-token"]').attr('content');
+    $.ajax({
+        url: '/product/getVirtualBrandList?id=' + val + '', // İstek yapılacak URL
+        type: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        },
+        success: function (response) {
+            if (response.length > 0) {
+                // Initialize the options string with a default option
+                var options = '<option selected>Choose a country</option>';
+
+                // Append options from the response to the options string
+                $.each(response, function (i, v) {
+                    options += '<option value="' + v.id + '">' + v.name + '</option>';
+                });
+
+                // Create the HTML for the card body and insert the options into the select
+                var trendyolHtml = `
+                            <div class="card-body">
+                                <h5>Trendyol Markalar</h5>
+                                <div class="form-item vertical">
+                                    <select class="input" name="virtualBrand[trendyol][0]">
+                                        ${options}
+                                    </select>
+                                </div>
+                            </div>
+                        `;
+
+                // Update the .jsonBody element with the new HTML
+                $('.jsonBrandBody').html(trendyolHtml);
+            }
+
+        },
+        error: function (xhr, status, error) {
+            handleAlert(xhr.responseJSON);
+        }
+    });
+})
+
+$('#category').change(function () {
+    $('.jsonBody').empty();
+    var val = $(this).val();
+    var csrfToken = $('meta[name="csrf-token"]').attr('content');
+    $.ajax({
+        url: '/product/getVirtualAttributeList?id=' + val,
+        type: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        },
+        success: function (response) {
+            var length = Object.keys(response).length;
+            if (length > 0) {
+                var trendyolHtml = '<div class="card-body"><h4>Trendyol Özellikler</h4>';
+
+                $.each(response, function (a, b) {
+                    var title = b.attribute.name;
+                    var options = `<option selected>${title}</option>`;
+                    $.each(b.attributeValues, function (i, v) {
+                        options += '<option value="' + v.id + '">' + v.name + '</option>';
+                    });
+                    var attributeId =b.attribute.id;
+                     trendyolHtml += `
+                        <div class="form-item vertical">
+                        <input type="hidden" value="${attributeId}" name="virtualAttribute[trendyol][${a}]['Id]">
+                            <select class="input" name="virtualAttributeValue[trendyol][${a}]['Id]">
+                                ${options}
+                            </select>
+                        </div>
+                    `;
+                });
+
+                trendyolHtml += '</div>'; // Closing the card-body div
+                $('.jsonCategoryBody').html(trendyolHtml);
+            }
+        },
+        error: function (xhr, status, error) {
+            handleAlert(xhr.responseJSON);
+        }
+    });
+});
+
+
+
+
 
 

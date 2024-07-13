@@ -37,12 +37,22 @@ class TrendyolProduct extends Command
         ])->first();
         $serviceSelect = new VirtualMarketServiceLocator();
         $this->serviceParams = $serviceSelect->getPlatformService($data['virtualmarketId'], $settings);
-        $products = Product::find(261);
+        $products = Product::find(262);
 
             $product = $this->getProduct($products);
             $servicePost = $this->serviceParams->setProduct($product,$settings->settings['clientId']);
-            $categories = $servicePost->getProduct();
-            dd($servicePost->getErrors(),$categories);
+            $response = $servicePost->getContents();
+            if(is_array($response))
+            {
+               print_r($response);
+            }else{
+                $response = json_decode($response,TRUE);
+                if($response['errors']){
+                    dd($response['errors'][0]['message']);
+                }else{
+                    dd($response);
+                }
+            }
 
 
     }
@@ -50,53 +60,51 @@ class TrendyolProduct extends Command
     public function getProduct($product)
     {
 
-       /* $attr = '[
-                            {
-                              "attributeId": 338,
-                              "attributeValueId": 6980
-                            },
-                            {
-                               "attributeId": 47,
-                               "customAttributeValue": "PUDRA"
-                             },
-                            {
-                              "attributeId": 346,
-                              "attributeValueId": 4290
-                            }
-                          ]'; */
-        $attr = '[]';
+        $brandID = $product->productVirtualSetting[0]['brand_id']['trendyol'][0];
+
+        $attributeIds = $product->productVirtualSetting[0]['attribute_id']['trendyol'];
+        $attributeValues = $product->productVirtualSetting[0]['attribute_value_id']['trendyol'];
+
+        $attributes = [];
+
+        foreach ($attributeIds as $key => $attribute) {
+            if (isset($attributeValues[$key])) {
+                $attributes[] = [
+                    'attributeId' => $attribute['\'Id'],
+                    'attributeValueId' => $attributeValues[$key]['\'Id']
+                ];
+            }
+        }
+
         $arrayData = [
             'items' => [
                 [
                     'barcode' => $product->id . '_' . $product->productCode,
                     'title' => $product->name,
                     'productMainId' => $product->id,
-                    'brandId' => 12591,
-                    'categoryId' => 4939,
+                    'brandId' => $brandID,
+                    'categoryId' => 5501,
                     'quantity' => $product->stock,
                     'stockCode' => $product->productCode,
                     'dimensionalWeight' => 1,
-                    'description' => $product->description,
+                    'description' => $product->description??'Hazirlanmaktadir',
                     'currencyType' => 'TRY',
                     'listPrice' => $product->price,
                     'salePrice' => $product->bulkDiscountPrice,
                     'vatRate' => $product->taxRate,
                     'cargoCompanyId' => 4,
-                    'deliveryOption' => [
-                        'deliveryDuration' => 1,
-                        'fastDeliveryType' => 'SAME_DAY_SHIPPING|FAST_DELIVERY'
-                    ],
+
                     'images' => [
                         [
                             'url' => asset('public/image' . $product->img)
                         ]
                     ],
-                    'attributes' => $attr
+                    'attributes' => $attributes,
                 ]
             ]
         ];
 
-         return $arrayData;
+        return $arrayData;
     }
 
 
