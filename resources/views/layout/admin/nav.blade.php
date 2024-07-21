@@ -1,226 +1,527 @@
-<div class="side-nav side-nav-light side-nav-expand">
-    <div class="side-nav-header">
-        <div class="logo px-6">
-            <img src="https://adminnew.phonehospital.com.tr/admin/img/logo/logo-light-full.png" alt="Elstar logo">
-        </div>
-    </div>
-    <div class="side-nav-content relative side-nav-scroll ps">
-        <nav class="menu menu-transparent px-4 pb-4">
-
-            <div class="menu-group">
-                <div class="menu-title">Eticaret</div>
-                <ul>
-
-                    <li class="menu-collapse">
-                        <div class="menu-collapse-item">
-                            <svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0"
-                                 viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-                            <span class="menu-item-text">Urun Yonetimi</span>
-                        </div>
-                        <ul style="display: none;">
-                            <li data-menu-item="classic-crm-dashboard" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="{{route('product.index')}}">
-                                    <span>Urunler</span>
-                                </a>
-                            </li>
-                            <li data-menu-item="classic-calendar" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="{{route('brand.index')}}">
-                                    <span>Marka</span>
-                                </a>
-                            </li>
-                            <li data-menu-item="classic-calendar" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="classic-calendar.html">
-                                    <span>Model</span>
-                                </a>
-                            </li>
-                            <li data-menu-item="classic-calendar" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="{{route('category.index')}}">
-                                    <span>Kategoriler</span>
-                                </a>
-                            </li>
-                            <li data-menu-item="classic-calendar" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="{{route('product_attribute.group.index')}}">
-                                    <span>Urun Ozellikleri</span>
-                                </a>
-                            </li>
-                            <li data-menu-item="classic-customers" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="classic-customers.html">
-                                    <span>Varyant Yonetimi</span>
-                                </a>
-                            </li>
-                            <li data-menu-item="classic-customer-details" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="classic-customer-details.html">
-                                    <span>Resim Yonetimi</span>
-                                </a>
-                            </li>
-                            <li data-menu-item="classic-mail" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="{{route('customer.index')}}">
-                                    <span>Musteri Hizmetleri</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-collapse">
-                        <div class="menu-collapse-item">
-                            <svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0"
-                                 viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                            </svg>
-                            <span class="menu-item-text">Siparis Yonetimi</span>
-                        </div>
-                        <ul style="display: none;">
-                            <li data-menu-item="classic-sales-dashboard" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="{{route('order.ecommerce')}}">
-                                    <span>Eticaret Siparisler</span>
-                                </a>
-                            </li>
-
-
-
-                            <li data-menu-item="classic-product-list" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="classic-product-list.html">
-                                    <span>Odeme Methdolari</span>
-                                </a>
-                            </li>
-                            <li data-menu-item="classic-product-edit" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="classic-product-edit.html">
-                                    <span>Siparis Durumlari</span>
-                                </a>
-                            </li>
-                            <li data-menu-item="classic-product-edit" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="classic-product-edit.html">
-                                    <span>Kargo Yonetimi</span>
-                                </a>
-                            </li>
-                            <li data-menu-item="classic-new-product" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="{{route('customer.index')}}">
-                                    <span>Musteriler</span>
-                                </a>
-                            </li>
-                            <li data-menu-item="classic-order-list" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="classic-order-list.html">
-                                    <span>Transaction</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-collapse">
-                        <div class="menu-collapse-item">
-                            <svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0"
-                                 viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                            </svg>
-                            <span class="menu-item-text">Sanal Pazar Yonetimi</span>
-                        </div>
-                        <ul style="display: none;">
-                            <li data-menu-item="classic-sales-dashboard" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="{{route('virtual_market.trendyol_category_compare')}}">
-                                    <span>Trendyol Kategori Eşleştirme</span>
-                                </a>
-                            </li>
-
-                            <li data-menu-item="classic-sales-dashboard" class="menu-item">
-                                <a class="h-full w-full flex items-center" href="{{route('virtual_market.trendyol_attribute_compare')}}">
-                                    <span>Trendyol Özellik Eşleştirme</span>
-                                </a>
-                            </li>
-
-
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="menu-group">
-                <div class="menu-title menu-title-transparent">
-                    Kullanici Yonetimi
+<header class="header border-b border-gray-200 dark:border-gray-700">
+    <div class="header-wrapper h-13  mx-auto">
+        <!-- Header Nav Start start -->
+        <div class="header-action header-action-start">
+            <div class="side-nav-toggle-mobile header-action-item header-action-item-hoverable" data-bs-toggle="modal" data-bs-target="#mobile-nav-drawer">
+                <div class="text-sm">
+                    <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+                    </svg>
                 </div>
-                <ul>
-                    <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
-                        <a class="menu-item-link" href="{{route('user.index')}}">
-                            <svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0"
-                                 viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
-                            </svg>
-                            <span class="menu-item-text">Kullanicilar</span>
-                        </a>
-                    </li>
-
-                </ul>
             </div>
-            <div class="menu-group">
-                <div class="menu-title menu-title-transparent">
-                      Yonetim
+            <div class="logo px-6 hidden md:flex">
+                <img src="https://adminnew.phonehospital.com.tr/admin/img/logo/logo-light-full.png" alt="logo">
+            </div>
+        </div>
+        <!-- Header Nav Start edn -->
+        <!-- Header Nav Middle start -->
+        <div class="header-action header-action-middle hidden md:flex">
+            <div class="flex items-center horizontal-nav">
+                <div>
+                    <div data-menu-item="simple-documentation" class="menu-item">
+                            <span class="menu-item-icon">
+                                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                            </span>
+                        <a class="h-full w-full flex items-center" href="{{route('dashboard')}}">
+                            <span>ANASAYFA</span>
+                        </a>
+                    </div>
                 </div>
-                <ul>
-                    <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
-                        <a class="menu-item-link" href="{{route('slider.index')}}">
-                            <svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0"
-                                 viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
-                            </svg>
-                            <span class="menu-item-text">Slider</span>
-                        </a>
-                    </li>
-                    <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
-                        <a class="menu-item-link" href="{{route('banner.index')}}">
-                            <svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0"
-                                 viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
-                            </svg>
-                            <span class="menu-item-text">Banner</span>
-                        </a>
-                    </li>
-                    <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
-                        <a class="menu-item-link" href="{{route('ecommerceSetting.index')}}">
-                            <svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0"
-                                 viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
-                            </svg>
-                            <span class="menu-item-text">Ayarlar</span>
-                        </a>
-                    </li>
+                <div class="dropdown">
+                    <div class="dropdown-toggle">
+                        <div class="menu-item menu-item-hoverable">
+                                                   <span class="text-sm">
+                                                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"></path>
+                                                        </svg>
+                                                    </span>
+                            <span>KATALOG</span>
+                        </div>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li data-menu-item="simple-welcome" class="menu-item menu-item-single">
+                            <a class="h-full w-full flex items-center" href="{{route('product.index')}}">
+                                <span>Urunler</span>
+                            </a>
+                        </li>
+                        <li data-menu-item="simple-welcome" class="menu-item menu-item-single">
+                            <a class="h-full w-full flex items-center" href="{{route('brand.index')}}">
+                                <span>Marka</span>
+                            </a>
+                        </li>
 
-                    <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
-                        <a class="menu-item-link" href="{{route('faq.index')}}">
-                            <svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0"
-                                 viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
-                            </svg>
-                            <span class="menu-item-text">Faq</span>
-                        </a>
-                    </li>
+                        <li data-menu-item="simple-welcome" class="menu-item menu-item-single">
+                            <a class="h-full w-full flex items-center" href="{{route('category.index')}}">
+                                <span>Kategoriler</span>
+                            </a>
+                        </li>
+                        <li data-menu-item="simple-welcome" class="menu-item menu-item-single">
+                            <a class="h-full w-full flex items-center" href="{{route('product_attribute.group.index')}}">
+                                <span>Urun Ozellikleri</span>
+                            </a>
+                        </li>
 
-                    <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
-                        <a class="menu-item-link" href="{{route('virtual_market.index')}}">
-                            <svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0"
-                                 viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
-                            </svg>
-                            <span class="menu-item-text">Sanal Pazar</span>
+                        <li data-menu-item="simple-welcome" class="menu-item menu-item-single">
+                            <a class="h-full w-full flex items-center" href="{{route('customer.index')}}">
+                                <span>Musteri Hizmetleri</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <div class="dropdown-toggle">
+                        <div class="menu-item menu-item-hoverable">
+                               <span class="text-sm">
+                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"></path>
+                                    </svg>
+                                </span>
+                            <span>YÖNETİM</span>
+                        </div>
+                    </div>
+                    <ul class="dropdown-menu">
+
+                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
+                            <a class="menu-item-link" href="{{route('slider.index')}}">
+                                <span class="menu-item-text">Slider</span>
+                            </a>
+                        </li>
+                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
+                            <a class="menu-item-link" href="{{route('banner.index')}}">
+                                <span class="menu-item-text">Banner</span>
+                            </a>
+                        </li>
+
+
+                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
+                            <a class="menu-item-link" href="{{route('faq.index')}}">
+                                <span class="menu-item-text">Faq</span>
+                            </a>
+                        </li>
+
+                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
+                            <a class="menu-item-link" href="{{route('virtual_market.index')}}">
+                                <span class="menu-item-text">Sanal Pazar</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <div class="dropdown-toggle">
+                        <div class="menu-item menu-item-hoverable">
+                               <span class="text-sm">
+                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"></path>
+                                    </svg>
+                                </span>
+                            <span>SİPARİŞLER</span>
+                        </div>
+                    </div>
+                    <ul class="dropdown-menu">
+
+                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
+                            <a class="h-full w-full flex items-center" href="{{route('order.ecommerce')}}">
+                                <span>Eticaret Siparisler</span>
+                            </a>
+                        </li>
+
+                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
+                            <a class="h-full w-full flex items-center" href="classic-product-list.html">
+                                <span>Odeme Methdolari</span>
+                            </a>
+                        </li>
+                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
+                            <a class="h-full w-full flex items-center" href="classic-product-edit.html">
+                                <span>Siparis Durumlari</span>
+                            </a>
+                        </li>
+                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
+                            <a class="h-full w-full flex items-center" href="classic-product-edit.html">
+                                <span>Kargo Yonetimi</span>
+                            </a>
+                        </li>
+                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
+                            <a class="h-full w-full flex items-center" href="{{route('customer.index')}}">
+                                <span>Musteriler</span>
+                            </a>
+                        </li>
+                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
+                            <a class="h-full w-full flex items-center" href="classic-order-list.html">
+                                <span>Transaction</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <div class="dropdown-toggle">
+                        <div class="menu-item menu-item-hoverable">
+                               <span class="text-sm">
+                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"></path>
+                                    </svg>
+                                </span>
+                            <span>SANAL PAZAR</span>
+                        </div>
+                    </div>
+                    <ul class="dropdown-menu">
+
+                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
+                            <a class="h-full w-full flex items-center" href="{{route('virtual_market.trendyol_category_compare')}}">
+                                <span>Trendyol Kategori Eşleştirme</span>
+                            </a>
+                        </li>
+
+                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
+                            <a class="h-full w-full flex items-center" href="{{route('virtual_market.trendyol_attribute_compare')}}">
+                                <span>Trendyol Özellik Eşleştirme</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div>
+                    <div data-menu-item="simple-documentation" class="menu-item">
+                            <span class="menu-item-icon">
+                                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                            </span>
+                        <a class="h-full w-full flex items-center" href="{{route('user.index')}}" target="_blank">
+                            <span>KULLANICILAR</span>
                         </a>
+                    </div>
+                </div>
+                <div>
+                    <div data-menu-item="simple-documentation" class="menu-item">
+                            <span class="menu-item-icon">
+                                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                            </span>
+                        <a class="h-full w-full flex items-center" href="{{route('ecommerceSetting.index')}}" target="_blank">
+                            <span>AYARLAR</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Nav Middle end -->
+        <!-- Header Nav End start -->
+        <div class="header-action header-action-end">
+            <!-- Language Selector-->
+            <!-- div class="dropdown">
+                <div class="dropdown-toggle" id="nav-lang-dropdown" data-bs-toggle="dropdown">
+                    <div class="header-action-item header-action-item-hoverable flex items-center">
+						 <span class="avatar avatar-circle" data-avatar-size="24">
+						 	<img class="avatar-img avatar-circle" src="{{asset('admin/img/countries/us.png')}}"
+                                  loading="lazy" alt="">
+						 </span>
+                    </div>
+                </div>
+                <ul class="dropdown-menu bottom-end">
+                    <li class="menu-item menu-item-hoverable mb-1 justify-between h-[35px]">
+												<span class="flex items-center">
+													<span class="avatar avatar-circle" data-avatar-size="18">
+														<img class="avatar-img avatar-circle" src="{{asset('admin/img/countries/us.png')}}"
+                                                             loading="lazy" alt="">
+													</span>
+													<span class="ltr:ml-2 rtl:mr-2">English</span>
+												</span>
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                             viewBox="0 0 20 20" class="text-emerald-500 text-lg" height="1em"
+                             width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                  clip-rule="evenodd"></path>
+                        </svg>
                     </li>
 
                 </ul>
+            </div -->
+            <!-- Notification-->
+            <div class="dropdown">
+                <div class="dropdown-toggle" id="nav-notification-dropdown" data-bs-toggle="dropdown">
+                    <div class="text-sm header-action-item header-action-item-hoverable">
+												<span class="badge-wrapper">
+													<span class="badge-dot badge-inner"
+                                                          style="top: 3px; right: 6px;"></span>
+													<svg stroke="currentColor" fill="none" stroke-width="0"
+                                                         viewBox="0 0 24 24" height="1em" width="1em"
+                                                         xmlns="http://www.w3.org/2000/svg">
+														<path stroke-linecap="round" stroke-linejoin="round"
+                                                              stroke-width="2"
+                                                              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+													</svg>
+												</span>
+                    </div>
+                </div>
+                <ul class="dropdown-menu p-0 min-w-[280px] md:min-w-[340px]">
+                    <li class="menu-item-header">
+                        <div
+                                class="border-b border-gray-200 dark:border-gray-600 px-4 py-2 flex items-center justify-between">
+                            <h6>Notifications</h6>
+                            <span class="tooltip-wrapper">
+														<button
+                                                                class="button bg-transparent border border-transparent hover:bg-gray-50 dark:hover:bg-gray-600 active:bg-gray-100 dark:active:bg-gray-500 dark:active:border-gray-500 text-gray-600 dark:text-gray-100 radius-circle h-9 w-9 inline-flex items-center justify-center text-lg">
+															<svg stroke="currentColor" fill="none" stroke-width="0"
+                                                                 viewBox="0 0 24 24" class="text-xl" height="1em"
+                                                                 width="1em" xmlns="http://www.w3.org/2000/svg">
+																<path stroke-linecap="round" stroke-linejoin="round"
+                                                                      stroke-width="2"
+                                                                      d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76"></path>
+															</svg>
+														</button>
+													</span>
+                        </div>
+                    </li>
+                    <li class="relative">
+                        <div class="max-h-[288px] overflow-y-auto relative notification-scroll">
+                            <div
+                                    class="relative flex px-4 py-4 cursor-pointer hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-black dark:hover:bg-opacity-20  border-b border-gray-200 dark:border-gray-600">
+                                <div>
+															<span class="avatar avatar-circle avatar-md">
+																<img class="avatar-img avatar-circle"
+                                                                     src="{{asset('img/avatars/thumb-8.jpg')}}" loading="lazy"
+                                                                     alt="">
+															</span>
+                                </div>
+                                <div class="ltr:ml-3 rtl:mr-3">
+                                    <div>
+                                        <span class="font-semibold heading-text">Jean Bowman </span>
+                                        <span>invited you to new project.</span>
+                                    </div>
+                                    <span class="text-xs">4 minutes ago</span>
+                                </div>
+                                <span
+                                        class="badge-dot bg-primary-600  absolute top-4 ltr:right-4 rtl:left-4 mt-1.5"></span>
+                            </div>
+                            <div
+                                    class="relative flex px-4 py-4 cursor-pointer hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-black dark:hover:bg-opacity-20  border-b border-gray-200 dark:border-gray-600">
+                                <div>
+															<span
+                                                                    class="avatar avatar-circle avatar-md bg-primary-600 dark:bg-primary-600">
+																<span class="avatar-string avatar-inner-md">VK</span>
+															</span>
+                                </div>
+                                <div class="ltr:ml-3 rtl:mr-3">
+                                    <div>
+                                        <span class="font-semibold heading-text">Vickie Kim </span>
+                                        <span>comment in your ticket.</span>
+                                    </div>
+                                    <span class="text-xs">20 minutes ago</span>
+                                </div>
+                                <span
+                                        class="badge-dot bg-primary-600  absolute top-4 ltr:right-4 rtl:left-4 mt-1.5"></span>
+                            </div>
+                            <div
+                                    class="relative flex px-4 py-4 cursor-pointer hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-black dark:hover:bg-opacity-20  border-b border-gray-200 dark:border-gray-600">
+                                <div>
+															<span
+                                                                    class="avatar avatar-circle avatar-md bg-blue-100 text-blue-600 dark:bg-blue-500/20 dark:text-blue-100">
+																<span class="avatar-icon avatar-icon-md">
+																	<svg stroke="currentColor" fill="none"
+                                                                         stroke-width="0" viewBox="0 0 24 24"
+                                                                         height="1em" width="1em"
+                                                                         xmlns="http://www.w3.org/2000/svg">
+																		<path stroke-linecap="round"
+                                                                              stroke-linejoin="round" stroke-width="2"
+                                                                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+																		</path>
+																	</svg>
+																</span>
+															</span>
+                                </div>
+                                <div class="ltr:ml-3 rtl:mr-3">
+                                    <div>
+                                        <span>Please submit your daily report.</span>
+                                    </div>
+                                    <span class="text-xs">1 hour ago</span>
+                                </div>
+                                <span
+                                        class="badge-dot bg-primary-600  absolute top-4 ltr:right-4 rtl:left-4 mt-1.5"></span>
+                            </div>
+                            <div
+                                    class="relative flex px-4 py-4 cursor-pointer hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-black dark:hover:bg-opacity-20  border-b border-gray-200 dark:border-gray-600">
+                                <div>
+															<span
+                                                                    class="avatar avatar-circle avatar-md bg-red-100 text-red-600 dark:bg-red-500/20 dark:text-red-100">
+																<span class="avatar-icon avatar-icon-md">
+																	<svg stroke="currentColor" fill="none"
+                                                                         stroke-width="0" viewBox="0 0 24 24"
+                                                                         height="1em" width="1em"
+                                                                         xmlns="http://www.w3.org/2000/svg">
+																		<path stroke-linecap="round"
+                                                                              stroke-linejoin="round" stroke-width="2"
+                                                                              d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
+																	</svg>
+																</span>
+															</span>
+                                </div>
+                                <div class="ltr:ml-3 rtl:mr-3">
+                                    <div>
+                                        <span>Your request was rejected</span>
+                                    </div>
+                                    <span class="text-xs">2 days ago</span>
+                                </div>
+                                <span
+                                        class="badge-dot bg-gray-300  absolute top-4 ltr:right-4 rtl:left-4 mt-1.5"></span>
+                            </div>
+                            <div
+                                    class="relative flex px-4 py-4 cursor-pointer hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-black dark:hover:bg-opacity-20  border-b border-gray-200 dark:border-gray-600">
+                                <div>
+															<span class="avatar avatar-circle avatar-md">
+																<img class="avatar-img avatar-circle"
+                                                                     src="img/avatars/thumb-4.jpg" loading="lazy"
+                                                                     alt="">
+															</span>
+                                </div>
+                                <div class="ltr:ml-3 rtl:mr-3">
+                                    <div>
+                                        <span class="font-semibold heading-text">Jennifer Ruiz </span>
+                                        <span>mentioned your in comment.</span>
+                                    </div>
+                                    <span class="text-xs">2 days ago</span>
+                                </div>
+                                <span
+                                        class="badge-dot bg-gray-300  absolute top-4 ltr:right-4 rtl:left-4 mt-1.5"></span>
+                            </div>
+                            <div
+                                    class="relative flex px-4 py-4 cursor-pointer hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-black dark:hover:bg-opacity-20">
+                                <div>
+															<span
+                                                                    class="avatar avatar-circle avatar-md bg-emerald-100 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-100">
+																<span class="avatar-icon avatar-icon-md">
+																	<svg stroke="currentColor" fill="none"
+                                                                         stroke-width="0" viewBox="0 0 24 24"
+                                                                         height="1em" width="1em"
+                                                                         xmlns="http://www.w3.org/2000/svg">
+																		<path stroke-linecap="round"
+                                                                              stroke-linejoin="round" stroke-width="2"
+                                                                              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+																	</svg>
+																</span>
+															</span>
+                                </div>
+                                <div class="ltr:ml-3 rtl:mr-3">
+                                    <div>
+                                        <span>Your request has been approved.</span>
+                                    </div>
+                                    <span class="text-xs">4 minutes ago</span>
+                                </div>
+                                <span
+                                        class="badge-dot bg-gray-300  absolute top-4 ltr:right-4 rtl:left-4 mt-1.5"></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="menu-item-header">
+                        <div
+                                class="flex justify-center border-t border-gray-200 dark:border-gray-600 px-4 py-2">
+                            <a class="font-semibold cursor-pointer p-2 px-3 text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white"
+                               href="classic-activity-log.html">
+                                View All Activity
+                            </a>
+                        </div>
+                    </li>
+                </ul>
             </div>
+            <!-- Config-->
 
-        </nav>
-        <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
-            <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+            <!-- User Dropdown-->
+            <div class="dropdown">
+                <div class="dropdown-toggle" id="user-dropdown" data-bs-toggle="dropdown">
+                    <div class="header-action-item flex items-center gap-2">
+						 <span class="avatar avatar-circle" data-avatar-size="32"
+                                style="width: 32px">
+						 <img class="avatar-img avatar-circle" src="{{asset('admin/img/avatars/thumb-1.jpg')}}"
+                               loading="lazy" alt=""></span>
+                        <div class="hidden md:block">
+                            <div class="text-xs capitalize">admin</div>
+                            <div class="font-bold">{{auth()->guard('admin')->user()->name}}</div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="dropdown-menu bottom-end min-w-[240px]">
+                    <li class="menu-item-header">
+                        <div class="py-2 px-3 flex items-center gap-2">
+													<span class="avatar avatar-circle avatar-md">
+														<img class="avatar-img avatar-circle"
+                                                             src="{{asset('admin/img/avatars/thumb-1.jpg')}}" loading="lazy" alt="">
+													</span>
+                            <div>
+                                <div class="font-bold text-gray-900 dark:text-gray-100">Carolyn
+                                    Perkins
+                                </div>
+                                <div class="text-xs">info@elstar.com</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="menu-item-divider"></li>
+                    <li class="menu-item menu-item-hoverable mb-1 h-[35px]">
+                        <a class="flex gap-2 items-center" href="classic-settings.html">
+													<span class="text-xl opacity-50">
+														<svg stroke="currentColor" fill="none" stroke-width="0"
+                                                             viewBox="0 0 24 24" height="1em" width="1em"
+                                                             xmlns="http://www.w3.org/2000/svg">
+															<path stroke-linecap="round" stroke-linejoin="round"
+                                                                  stroke-width="2"
+                                                                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+														</svg>
+													</span>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="menu-item menu-item-hoverable mb-1 h-[35px]">
+                        <a class="flex gap-2 items-center" href="classic-settings.html">
+													<span class="text-xl opacity-50">
+														<svg stroke="currentColor" fill="none" stroke-width="0"
+                                                             viewBox="0 0 24 24" height="1em" width="1em"
+                                                             xmlns="http://www.w3.org/2000/svg">
+															<path stroke-linecap="round" stroke-linejoin="round"
+                                                                  stroke-width="2"
+                                                                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+															<path stroke-linecap="round" stroke-linejoin="round"
+                                                                  stroke-width="2"
+                                                                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+														</svg>
+													</span>
+                            <span>Account Setting</span>
+                        </a>
+                    </li>
+                    <li class="menu-item menu-item-hoverable mb-1 h-[35px]">
+                        <a class="flex gap-2 items-center" href="classic-activity-log.html">
+													<span class="text-xl opacity-50">
+														<svg stroke="currentColor" fill="none" stroke-width="2"
+                                                             viewBox="0 0 24 24" stroke-linecap="round"
+                                                             stroke-linejoin="round" height="1em" width="1em"
+                                                             xmlns="http://www.w3.org/2000/svg">
+															<polyline
+                                                                    points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+														</svg>
+													</span>
+                            <span>Activity Log</span>
+                        </a>
+                    </li>
+                    <li id="menu-item-29-2VewETdxAb" class="menu-item-divider"></li>
+                    <li class="menu-item menu-item-hoverable gap-2 h-[35px]">
+												<span class="text-xl opacity-50">
+													<svg stroke="currentColor" fill="none" stroke-width="0"
+                                                         viewBox="0 0 24 24" height="1em" width="1em"
+                                                         xmlns="http://www.w3.org/2000/svg">
+														<path stroke-linecap="round" stroke-linejoin="round"
+                                                              stroke-width="2"
+                                                              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+													</svg>
+												</span>
+                        <span>Sign Out</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="ps__rail-y" style="top: 0px; right: 0px; height: 242px;">
-            <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
-        </div>
+        <!-- Header Nav End end -->
     </div>
-</div>
+</header>

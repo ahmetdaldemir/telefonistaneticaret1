@@ -66,6 +66,4 @@ class CategoryHelper
         }
         return $xx->virtual_market_category_id;
     }
-
-
 }

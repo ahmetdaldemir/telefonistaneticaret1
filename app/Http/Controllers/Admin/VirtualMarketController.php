@@ -131,7 +131,6 @@ class VirtualMarketController extends Controller
     {
        $x = VirtualMarketCategory::where('name','like',$request->term.'%')->get();
        return response()->json($x,200);
-
     }
 
     public function myCategories(Request $request)

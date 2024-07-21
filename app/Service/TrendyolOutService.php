@@ -43,5 +43,20 @@ class TrendyolOutService
         return $requiredAttributes;
     }
 
+    public function attributeCategoryId($id)
+    {
+        $requiredAttributes = [];
+        $data['virtualmarketId'] = 2;
+        $settings = VirtualMarketSetting::where([
+            'virtual_market_id' => 2, /* saas yapı için kullanılıyor !!! */
+            'company_id' => 1,
+        ])->first();
+        $serviceSelect = new VirtualMarketServiceLocator();
+        $this->serviceParams = $serviceSelect->getPlatformService($data['virtualmarketId'], $settings);
+        $servicePost = $this->serviceParams->getAttributes($id);
+        $data = $servicePost->getAttribute();
+        return $data['categoryAttributes'];
+    }
+
 
 }

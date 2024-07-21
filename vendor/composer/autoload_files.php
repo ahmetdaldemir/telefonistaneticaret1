@@ -38,4 +38,5 @@ return array(
     '377b22b161c09ed6e5152de788ca020a' => $vendorDir . '/spatie/laravel-permission/src/helpers.php',
     '0b47d6d4a00ca9112ba3953b49e7c9a4' => $vendorDir . '/yajra/laravel-datatables-oracle/src/helper.php',
     'e2a538285cf59c83c7c8cbd273e0fcf6' => $baseDir . '/app/Helpers/CustomHelper.php',
+    'd57a2cde443993acbaf6af966e412e18' => $baseDir . '/app/Library/class.fileuploader.php',
 );

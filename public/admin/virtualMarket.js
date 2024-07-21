@@ -115,9 +115,6 @@ var table = $('#datatable').DataTable({
 });
 
 
-
-
-
 var table = $('#attributedatatable').DataTable({
     scrollX: true,
     fixedHeader: true,
