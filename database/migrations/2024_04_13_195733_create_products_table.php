@@ -16,21 +16,21 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->autoIncrement();
-            $table->double('bulkDiscountPrice',10,2);
+            $table->double('price',10,2);
             $table->string('name');
             $table->string('costPerItem');
             $table->text('description');
             $table->string('img');
             $table->string('code');
             $table->longText('imgList');
-            $table->double('price',10,2);
-            $table->string('productCode');
+            $table->double('retail_price',10,2);
+            $table->string('modelcode');
             $table->boolean('status')->default(1);
             $table->boolean('bundle')->default(0);
             $table->mediumInteger('stock');
             $table->json('tags');
             $table->mediumInteger('taxRate');
-            $table->boolean('freeShipping')->default(0);
+            $table->boolean('free_shipping')->default(0);
 
 
             $table->unsignedBigInteger('brand');

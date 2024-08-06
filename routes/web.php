@@ -95,15 +95,18 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
         Route::get('get', [ProductController::class, 'show'])->name('get');
         Route::get('delete', [ProductController::class, 'destroy'])->name('delete');
         Route::post('store', [ProductController::class, 'store'])->name('store');
-        Route::post('update/{id}', [ProductController::class, 'update'])->name('update');
+        Route::post('update}', [ProductController::class, 'update'])->name('update');
         Route::get('getCategories', [ProductController::class, 'getCategories'])->name('getCategories');
         Route::post('getAttributeList', [ProductController::class, 'getAttributeList'])->name('getAttributeList');
+        Route::post('getAttributeListEdit', [ProductController::class, 'getAttributeListEdit'])->name('getAttributeListEdit');
         Route::post('getCategoryDetails', [ProductController::class, 'getCategoryDetails'])->name('getCategoryDetails');
+        Route::get('getCategory', [ProductController::class, 'getCategory'])->name('getCategory');
 
         Route::post('mounthdeal/{id}/{status}', [ProductController::class, 'mounthdeal'])->name('mounthdeal');
         Route::post('getVirtualBrandList', [ProductController::class, 'getVirtualBrandList'])->name('getVirtualBrandList');
         Route::post('getVirtualAttributeList', [ProductController::class, 'getVirtualAttributeList'])->name('getVirtualAttributeList');
         Route::post('image-upload', [ProductController::class, 'imageUpload'])->name('image-upload');
+        Route::post('edit-image-upload', [ProductController::class, 'editImageUpload'])->name('edit-image-upload');
         Route::post('ajax_remove_file', [ProductController::class, 'removeFile'])->name('ajax_remove_file');
 
     });

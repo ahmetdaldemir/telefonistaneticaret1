@@ -9,10 +9,14 @@ use App\Http\Controllers\Controller;
 use App\Models\AttributeGroup;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\EcommerceSetting;
 use App\Models\GeneralCategory;
 use App\Models\MarketAttribute;
 use App\Models\MonthlyDeal;
 use App\Models\Product;
+use App\Models\ProductAttribute;
+use App\Models\ProductImages;
+use App\Models\ProductVariant;
 use App\Models\VirtualMarketAttribute;
 use App\Models\VirtualMarketCategory;
 use App\Models\VirtualMarketCategoryCompare;
@@ -33,7 +37,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data['products'] = Product::all()->sortByDesc('id');
+        $data['products'] = ProductVariant::with('product')->get();
         return view('admin/product', $data);
     }
 
@@ -61,93 +65,111 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-        dd($request);
-        $attributesList = [];
-        $attributes = $request->product_attribute;
-        foreach ($attributes as $key => $value) {
-            if ($value['attribute_id'] == null) {
-                unset($attributes[$key]);
+
+        //  // Ürün ve varyant verilerini doğrulayın
+        //  $validatedData = $request->validate([
+        //      'name' => 'required|string|max:255',
+        //      'description' => 'nullable|string',
+        //      'quantity' => 'required|integer',
+        //      'variant.*.image' => 'nullable|json',
+        //      'variant.*.barcode' => 'required|string',
+        //      'variant.*.retail_price' => 'required|numeric',
+        //      'variant.*.price' => 'required|numeric',
+        //      'variant.*.quantity' => 'required|integer',
+        //      'variant.*.tax' => 'required|numeric',
+        //      'variant.*.stock_code' => 'required|string',
+        //  ]);
+
+        // Slug'ı oluşturun
+        $slug = Str::slug($request->input('name'));
+
+        // Ürün verilerini hazırlayın ve slug'ı ekleyin
+        $productData = $request->except('variant');
+        $productData['slug'] = $slug;
+        $productData['free_shipping'] = $request->filled('free_shipping') ?: $request->input('free_shipping');
+        $productData['bundle'] = $request->filled('bundle') ?: $request->input('bundle');
+        $variantsData = $request->input('variant');
+        $attributesData = $request->input('attribute');
+        $flattenedVariants = [];
+
+        foreach ($variantsData as $variantsGroup) {
+
+            // 1. Resim bilgisi olan varyantların tespit edilmesi
+            $existingImages = array_filter($variantsGroup, function ($variant) {
+                return !empty($variant['image']);
+            });
+
+            if (!empty($existingImages)) {
+                // İlk resim bilgisi olan varyantı al
+                $defaultImage = $existingImages[array_key_first($existingImages)]['image'];
+
+                // 2. Eksik resim bilgisini doldurma
+                foreach ($variantsGroup as &$variantData) {
+                    if (empty($variantData['image'])) {
+                        $variantData['image'] = $defaultImage;
+                    }
+                }
+            }
+
+
+            foreach ($variantsGroup as $variant) {
+                $flattenedVariants[] = $variant;
             }
         }
-        $attributesList = $attributes;
-        $bundle = 0;
+        $product = Product::updateOrCreate(
+            ['barcode' => $productData['barcode'], 'modelcode' => $productData['modelcode']], // Eşleşme Koşulu
+            [
+                'name' => $productData['name'],
+                'description' => $productData['description'],
+                'tags' => $productData['tags'],
+                'brand' => $productData['brand'],
+                'category' => $productData['categories'],
+                'slug' => $productData['slug'],
+                'free_shipping' => $productData['free_shipping'],
+                'bundle' => $productData['bundle'],
+            ]
+        );
 
-        if ($request->has('bundle')) {
-            $bundle = 1;
-        }
+        foreach ($flattenedVariants as $variantData) {
+            // Variantı güncelle veya oluştur
+            $variant = $product->variants()->updateOrCreate(
+                ['barcode' => $variantData['barcode']], // Eşleşme koşulu (unique field)
+                [   // Güncellenebilir / Oluşturulacak alanlar
+                    'retail_price' => $variantData['retail_price'],
+                    'product_id' => $product->id,
+                    'price' => $variantData['price'],
+                    'quantity' => $variantData['quantity'],
+                    'tax' => $variantData['tax'],
+                    'stock_code' => $variantData['stock_code'],
+                    'description' => $variantData['description'] ?? null,
+                ]
+            );
 
-        $imageName = '';
-
-
-        if ($request->id == 0) {
-            $product = new Product();
-        } else {
-            $imageName = $request->fakeImageName;
-            $product = Product::find($request->id);
-        }
-
-        if ($request->hasFile('img')) {
-            $image = $request->file('img');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(storage_path('app/public/images'), $imageName);
-        }
-
-        $imageNameList = [];
-        if ($request->hasFile('imgList')) {
-            $images = $request->file('imgList');
-            foreach ($images as $imagex) {
-                // Her dosya için benzersiz bir isim oluşturun
-                $imageNamea = time() . '_' . rand(0, 99999999) . '.' . $imagex->getClientOriginalExtension();
-                // Dosyayı taşıyın ve kaydedin
-                $imagex->move(storage_path('app/public/images'), $imageNamea);
-                $imageNameList[] = $imageNamea;
+            // JSON string to array
+            $images = json_decode($variantData['image'], true);
+            foreach ($images as $image) {
+                $variant->images()->create([
+                    'image' => $image['file'],
+                    'product_id' => $product->id,
+                    'size' => $product->id,
+                    'type' => 'image/jpg',
+                    'name' => $image['file'],
+                    'index' => 1,
+                    'is_main' => 0,
+                ]);
             }
         }
 
-
-        $product->bulkDiscountPrice = strip_tags(trim($request->bulkDiscountPrice));
-        $product->description = $request->description;
-
-        if ($request->id == 0 && !empty($imageNameList)) {
-            $product->imgList = $imageNameList;
-        } else {
-            if (!empty($imageNameList)) {
-                $product->imgList = $imageNameList;
+        if (isset($attributesData[0])) {
+            foreach ($attributesData[0] as $key => $value) {
+                $product->attributes()->updateOrCreate(
+                    ['attribute' => $key], // Eşleşme koşulu (benzersiz alan)
+                    [   // Güncellenebilir / Oluşturulacak alanlar
+                        'attribute_values' => $value,
+                    ]
+                );
             }
         }
-
-        if ($request->id == 0 && !is_null($imageName)) {
-            $product->img = $imageName;
-        } else {
-            if (!is_null($imageName)) {
-                $product->img = $imageName;
-            }
-        }
-
-        $product->price = $request->price;
-        $product->productCode = strip_tags(trim($request->productCode));
-        $product->stock = strip_tags(trim($request->stock));
-        if ($request->filled('tags')) {
-            $product->tags = $request->tags;
-        }
-        $product->taxRate = strip_tags(trim($request->taxRate));
-        $product->brand = $request->brand;
-        $product->category = $request->category;
-        $product->version = $request->version;
-        $product->name = strip_tags(trim($request->name));
-        $product->slug = Str::slug($request->name);
-        $product->bundle = $bundle;
-        $product->product_attribute = $attributesList;
-        $product->save();
-
-        // Attribute ve attributeValue verilerini al
-        $brand = $request->virtualBrand;
-        $attributes = $request->virtualAttribute;
-        $attributeValues = $request->virtualAttributeValue;
-
-        // Event'i tetikle
-        event(new ProductEvent($product, $brand, $attributes, $attributeValues));
-
 
         return redirect()->back();
     }
@@ -174,8 +196,9 @@ class ProductController extends Controller
         $data['categories'] = Category::all();
         $data['brands'] = Brand::all();
         $data['attributeGroups'] = AttributeGroup::all();
-        $data['product'] = Product::find($request->id);
-        return view('admin/new_product', $data);
+        $data['product'] = ProductVariant::with('product')->find($request->id);
+        $data['address'] = EcommerceSetting::whereIn('type',['shipping_address','refund_address'])->get();
+        return view('admin/edit_product', $data);
     }
 
     /**
@@ -185,14 +208,49 @@ class ProductController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $product = Product::find($id);
-        foreach ($request->request as $key => $value) {
-            $product->{$key} = $value == 0 ? 1 : 0;
-        }
+        $product = Product::find($request->id);
+        $slug = Str::slug($request->input('name'));
+        $productData = $request->except('variant');
+        $productData['slug'] = $slug;
+        $productData['free_shipping'] = $request->filled('free_shipping') ?: $request->input('free_shipping');
+        $productData['bundle'] = $request->filled('bundle') ?: $request->input('bundle');
+        $attributesData = $request->input('attribute');
+
+
+        $product->modelcode = $productData['modelcode'];
+        $product->name = $productData['name'];
+        $product->description = $productData['description'];
+        $product->tags = $productData['tags'];
+        $product->brand = $productData['brand'];
+        $product->slug = $productData['slug'];
+        $product->free_shipping = $productData['free_shipping'];
+        $product->bundle = $productData['bundle'];
         $product->save();
-        return response()->json('Urun Guncellendi', 200);
+
+
+        $product->variants()->where('product_id' , $request->id)->where('id' , $request->product_variant_id)->update([
+            'retail_price' => $productData['retail_price'],
+            'price' => $productData['price'],
+            'quantity' => $productData['quantity'],
+            'tax' => $productData['tax'],
+            'stock_code' => $productData['stock_code'],
+            'description' => $productData['description'] ?? null,
+        ]);
+
+
+             foreach ($attributesData as $key => $value) {
+                 foreach ($value as $item => $itemValue) {
+                    $product->attributes()->updateOrCreate(
+                        ['attribute' => $item], // Eşleşme koşulu (benzersiz alan)
+                        [   // Güncellenebilir / Oluşturulacak alanlar
+                            'attribute_values' => $itemValue,
+                        ]
+                    );
+            }
+            }
+         return redirect()->back();
     }
 
     /**
@@ -278,30 +336,27 @@ class ProductController extends Controller
 
     public function getCategories(Request $request)
     {
-
         $query = GeneralCategory::with('parent');
-
         $searchValue = $request->term;
         $query->where('name', 'LIKE', "%$searchValue%");
-
         $categories = $query->skip(0)->take(30)->get();
-
         $categoryPaths = GeneralCategoryHelper::getCategoryPaths($categories);
-
         return response()->json($categoryPaths, 200);
-
-
     }
 
+    public function getCategory(Request $request)
+    {
+        $generalcategory = GeneralCategory::where('category_id', $request->id)->first();
+        return response()->json($generalcategory, 200);
+    }
 
     public function getAttributeList(Request $request)
     {
 
-        $market_attribute_list = MarketAttribute::where('categoryId',$request->id)->get();
-        if($market_attribute_list->count() > 0)
-        {
+        $market_attribute_list = MarketAttribute::where('categoryId', $request->id)->get();
+        if ($market_attribute_list->count() > 0) {
             return response()->json($market_attribute_list, 200);
-        }else{
+        } else {
             $trndyolOutService = new TrendyolOutService();
             $attributeService = $trndyolOutService->attributeCategoryId($request->id);
             if (count($attributeService) > 0) {
@@ -310,15 +365,36 @@ class ProductController extends Controller
                         ['market_attribute_id' => $item['attribute']['id'], 'categoryId' => $item['categoryId']],
                         ['name' => $item['attribute']['name'], 'required' => $item['required'] == 0 ? 'false' : 'true',
                             'varianter' => $item['varianter'] == 0 ? 'false' : 'true',
+                            'allow_custom' => $item['allowCustom'] == 0 ? 'false' : 'true',
                             'slicer' => $item['slicer'] == 0 ? 'false' : 'true',
                             'attributeValues' => $item['attributeValues']
                         ]
                     );
                 }
             }
-            $market_attribute_list = MarketAttribute::where('categoryId',$request->id)->get();
+            $market_attribute_list = MarketAttribute::where('categoryId', $request->id)->get();
             return response()->json($market_attribute_list, 200);
         }
+    }
+
+    public function getAttributeListEdit(Request $request)
+    {
+        $array = [];
+        $market_attribute_list = MarketAttribute::where('categoryId', $request->id)->where('slicer', 'false')->where('varianter', 'false')->where('required', 'true')->get();
+        foreach ($market_attribute_list as $item) {
+            $array[] = [
+                'name' => $item->name,
+                'id' => $item->id,
+                'attribute_id' => $item->attribute_id,
+                'required' => $item->required,
+                'varianter' => $item->varianter,
+                'slicer' => $item->slicer,
+                'attributeValues' => $item->attributeValues,
+                'selectedattributeValue' => ProductAttribute::where('product_id', $request->product_id)->where('attribute', $item->id)->first(),
+            ];
+        }
+
+        return response()->json($array, 200);
     }
 
     public function getCategoryDetails(Request $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
@@ -326,9 +402,8 @@ class ProductController extends Controller
         $categoryId = $request->id;
         $variants = $request->variants;
         $dataset = $request->dataSet;
-        return view('admin.partials.variant', compact('categoryId','variants','dataset'));
+        return view('admin.partials.variant', compact('categoryId', 'variants', 'dataset'));
     }
-
 
     public function imageUpload(Request $request)
     {
@@ -347,7 +422,7 @@ class ProductController extends Controller
         // upload
         $upload = $FileUploader->upload();
         if ($upload['isSuccess']) {
-            foreach($upload['files'] as $key=>$item) {
+            foreach ($upload['files'] as $key => $item) {
                 $upload['files'][$key] = array(
                     'extension' => $item['extension'],
                     'format' => $item['format'],
@@ -366,14 +441,147 @@ class ProductController extends Controller
         exit;
     }
 
-    public function removeFile(Request $request) {
+    public function removeFile(Request $request)
+    {
         if (isset($_POST['file'])) {
             $uploadDir = '';
             $file = storage_path('app/public/product') . $uploadDir . str_replace(array('/', '\\'), '', $_POST['file']);
 
-            if(file_exists($file))
+            if (file_exists($file))
                 unlink($file);
         }
         exit;
+    }
+
+
+    public function editImageUpload(Request $request)
+    {
+
+
+        $action = $request->query('type', '');
+        $id = $request->input('id');
+        $product_id = $request->input('product_id');
+        $product_variant_id = $request->input('product_variant_id');
+        // upload
+
+
+        if ($action == 'upload') {
+            $field = 'files';
+            $uploadDir = '';
+
+            // initialize FileUploader
+            $FileUploader = new FileUploader($field, array(
+                'limit' => 100,
+                'fileMaxSize' => 100,
+                'extensions' => null,
+                'uploadDir' => storage_path('app/public/product/') . $uploadDir,
+                'title' => 'auto'
+            ));
+
+            // upload
+            $upload = $FileUploader->upload();
+            if ($upload['isSuccess']) {
+
+                $data = ProductImages::create([
+                    'product_id' => $product_id,
+                    'product_variant_id' => $product_variant_id,
+                    'image' => $upload['files'][0]['name'],
+                    'is_main' => 0,
+                    'size' => $upload['files'][0]['size'],
+                    'type' => $upload['files'][0]['type'],
+                    'name' => $upload['files'][0]['title'],
+                    'index' => 1,
+                ]);
+
+
+            }
+
+            echo json_encode($data);
+            exit;
+        }
+
+
+        if ($action == 'preload') {
+            $preloadedFiles = [];
+
+            $query = ProductImages::where('product_variant_id', $product_variant_id)->get();
+            if ($query->count() > 0) {
+                foreach ($query as $row) {
+                    $filePath = 'storage/product/' . $row->image;
+
+                    $preloadedFiles[] = array(
+                        'name' => $row->name,
+                        'type' => $row->type,
+                        'size' => $row->size,
+                        'file' => $row->image,
+                        'data' => array(
+                            'url' => $row->image,
+                            'date' => $row->created_at,
+                            'isMain' => !($row->is_main == 0),
+                            'thumbnail' => $row->image,
+                            'listProps' => array(
+                                'id' => $row->id,
+                            )
+                        ),
+                    );
+
+                }
+            }
+            echo json_encode($preloadedFiles);
+            exit;
+        }
+
+        if ($request->input('sort') === 'sort') {
+            // Listeyi al
+            $list = $request->input('list');
+
+            if ($list) {
+                // Listeyi JSON'dan diziye çevir
+                $list = json_decode($list, true);
+
+                // Başlangıç indeksini belirle
+                $index = 0;
+
+                // Listeyi döngüye al
+                foreach ($list as $val) {
+                    // Gereken alanların mevcut olup olmadığını kontrol et
+                    if (isset($val['id']) && isset($val['name']) && isset($val['index'])) {
+                        // Gallery modelini kullanarak güncelleme yap
+                        ProductImages::where('id', $val['id'])->update(['index' => $index]);
+                        $index++;
+                    } else {
+                        // Eğer gerekli alanlar eksikse döngüyü kır
+                        break;
+                    }
+                }
+            }
+
+            // İsteğe bağlı olarak bir başarı mesajı döndürebilirsiniz
+            return response()->json(['message' => 'Items sorted successfully.']);
+        }
+// asmain
+        if ($request->input('type') === 'asmain') {
+            $id = $request->input('id');
+            $name = $request->input('name');
+
+            if ($id && $name) {
+                // Tüm resimleri ana olarak işaretlemeyi kaldır
+                ProductImages::query()->update(['is_main' => 0]);
+
+                // Belirli ID'ye sahip resmi ana olarak işaretle
+                ProductImages::where('id', $id)->update(['is_main' => 1]);
+
+                // İsteğe bağlı olarak başarı mesajı döndürebilirsiniz
+                return response()->json(['message' => 'Image set as main successfully.']);
+            }
+
+            // Geçersiz ID veya isim durumunda hata mesajı döndür
+            return response()->json(['message' => 'Invalid ID or name.'], 400);
+        }
+    }
+
+    private function getRealFile($file)
+    {
+        return str_replace(storage_path('app/public/product/'), '', $file);
     }
 }

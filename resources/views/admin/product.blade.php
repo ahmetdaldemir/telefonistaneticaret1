@@ -41,18 +41,16 @@
                                 <tbody>
                                 @foreach($products as $product)
                                     <tr>
-
-                                        <td>{{$product->id}}</td>
+                                         <td>{{$product->product->id}}</td>
 
                                         <td>
-                                            <div class="flex items-center"><span class="avatar avatar-rounded avatar-md"><img class="avatar-img avatar-rounded" src="{{$product->img}}" loading="lazy"></span><span class="ml-2 rtl:mr-2 font-semibold">{{$product->name}}</></div>
-
+                                            <div class="flex items-center"><span class="avatar avatar-rounded avatar-md"><img class="avatar-img avatar-rounded" src="{{ $product->images->isNotEmpty() ? $product->images[0]->image : asset('admin/img/others/upload.png') }}" loading="lazy"></span><span class="ml-2 rtl:mr-2 font-semibold">{{$product->name}}</></div>
+                                        </td>
+                                        <td>
+                                            <span>{{$product->retail_price}} ₺</span>
                                         </td>
                                         <td>
                                             <span>{{$product->price}} ₺</span>
-                                        </td>
-                                        <td>
-                                            <span>{{$product->bulkDiscountPrice}} ₺</span>
                                         </td>
                                         <td>
                                             <div class="flex items-center gap-2">
@@ -62,7 +60,7 @@
                                         </td>
                                         <td>
                                             <label class="checkbox-label">
-                                                <input title="Ayın Ürünü" id="mounthdeal" data-id="{{$product->id}}"
+                                                <input title="Ayın Ürünü" id="mounthdeal" data-id="{{$product->product->id}}"
                                                        data-bs-toggle="tooltip" data-bs-title="Ayın Ürünü"
                                                        class="checkbox" type="checkbox" value="true"
                                                        @if($product->mountlydeal) data-status="1" checked
@@ -70,7 +68,7 @@
                                             </label>
                                             <label class="checkbox-label">
                                                 <input title="Kargo Bedava Urunler " id="freeShipping"
-                                                       data-id="{{$product->id}}" data-bs-toggle="tooltip"
+                                                       data-id="{{$product->product->id}}" data-bs-toggle="tooltip"
                                                        data-bs-title="Kargo Bedava Urun" class="checkbox"
                                                        type="checkbox" value="true"
                                                        @if($product->freeShipping) data-status="1" checked

@@ -454,7 +454,7 @@
 
 .g-table-wrapper .g-table table tbody tr td {
     border: 1px solid #dee2e6;
-    padding: 20px;
+    padding: 0px 5px 0 5px;
     font-size: 14px;
     font-weight: 400;
     font-stretch: normal;

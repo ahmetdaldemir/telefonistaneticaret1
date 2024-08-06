@@ -5,9 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model{
+class Product extends BaseModel {
     use HasFactory;
-
+    protected $fillable = [
+ 'name',
+ 'description',
+ 'modelcode',
+ 'barcode',
+ 'status',
+ 'tags',
+ 'brand',
+ 'category',
+ 'slug',
+ 'free_shipping',
+ 'bundle', 'company_id'];
     protected $casts = ['tags' => 'array','imgList' => 'array','product_attribute' => 'array'];
 
     public function mountlydeal()
@@ -24,13 +35,12 @@ class Product extends Model{
         return $this->hasMany(Product::class,'category','id');
     }
 
-    public function getImgAttribute($value)
+    public function getImageAttribute($value)
     {
         // URL kontrolü için basit bir regex kullanıyoruz.
         if (filter_var($value, FILTER_VALIDATE_URL)) {
             return $value; // Eğer değer geçerli bir URL ise, doğrudan döndür.
         }
-
         // Eğer değer URL değilse, varsayılan bir dosya yolu ekleyerek döndür.
         return asset('storage/images/' . $value);
     }
@@ -38,6 +48,21 @@ class Product extends Model{
     public function productVirtualSetting()
     {
         return $this->hasMany(ProductVirtualSetting::class);
+    }
+
+    public function variants()
+    {
+        return $this->hasMany(ProductVariant::class, 'product_id', 'id');
+    }
+
+    public function attributes()
+    {
+        return $this->hasMany(ProductAttribute::class, 'product_id', 'id');
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ProductImages::class, 'product_id', 'id');
     }
 
     protected static function boot()

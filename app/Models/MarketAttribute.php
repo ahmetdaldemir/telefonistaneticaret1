@@ -10,6 +10,6 @@ class MarketAttribute extends Model
     use HasFactory;
 
     protected $casts = ['attributeValues' => 'json'];
-    protected $fillable = ['market_attribute_id','categoryId','required','varianter','slicer','name','attributeValues'];
+    protected $fillable = ['market_attribute_id','categoryId','required','varianter','allow_custom','slicer','name','attributeValues','is_main'];
 
 }

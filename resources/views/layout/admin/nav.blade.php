@@ -25,19 +25,15 @@
                                 </svg>
                             </span>
                         <a class="h-full w-full flex items-center" href="{{route('dashboard')}}">
-                            <span>ANASAYFA</span>
+                            <span>Anasayfa</span>
                         </a>
                     </div>
                 </div>
                 <div class="dropdown">
                     <div class="dropdown-toggle">
                         <div class="menu-item menu-item-hoverable">
-                                                   <span class="text-sm">
-                                                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"></path>
-                                                        </svg>
-                                                    </span>
-                            <span>KATALOG</span>
+
+                            <span>Katalog</span>
                         </div>
                     </div>
                     <ul class="dropdown-menu">
@@ -74,12 +70,8 @@
                 <div class="dropdown">
                     <div class="dropdown-toggle">
                         <div class="menu-item menu-item-hoverable">
-                               <span class="text-sm">
-                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"></path>
-                                    </svg>
-                                </span>
-                            <span>YÖNETİM</span>
+
+                            <span>Yönetim</span>
                         </div>
                     </div>
                     <ul class="dropdown-menu">
@@ -113,12 +105,8 @@
                 <div class="dropdown">
                     <div class="dropdown-toggle">
                         <div class="menu-item menu-item-hoverable">
-                               <span class="text-sm">
-                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"></path>
-                                    </svg>
-                                </span>
-                            <span>SİPARİŞLER</span>
+
+                            <span>Siparişler</span>
                         </div>
                     </div>
                     <ul class="dropdown-menu">
@@ -160,12 +148,8 @@
                 <div class="dropdown">
                     <div class="dropdown-toggle">
                         <div class="menu-item menu-item-hoverable">
-                               <span class="text-sm">
-                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"></path>
-                                    </svg>
-                                </span>
-                            <span>SANAL PAZAR</span>
+
+                            <span>Sanal Pazar</span>
                         </div>
                     </div>
                     <ul class="dropdown-menu">
@@ -186,25 +170,17 @@
                 </div>
                 <div>
                     <div data-menu-item="simple-documentation" class="menu-item">
-                            <span class="menu-item-icon">
-                                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                </svg>
-                            </span>
+
                         <a class="h-full w-full flex items-center" href="{{route('user.index')}}" target="_blank">
-                            <span>KULLANICILAR</span>
+                            <span>Kullanıcılar</span>
                         </a>
                     </div>
                 </div>
                 <div>
                     <div data-menu-item="simple-documentation" class="menu-item">
-                            <span class="menu-item-icon">
-                                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                </svg>
-                            </span>
+
                         <a class="h-full w-full flex items-center" href="{{route('ecommerceSetting.index')}}" target="_blank">
-                            <span>AYARLAR</span>
+                            <span>Ayarlar</span>
                         </a>
                     </div>
                 </div>

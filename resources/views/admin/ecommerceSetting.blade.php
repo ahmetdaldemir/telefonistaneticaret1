@@ -11,7 +11,7 @@
                                   clip-rule="evenodd"></path>
                         </svg>
                     </span>
-                <h5 class="mb-4">Banner Ekle</h5>
+                <h5 class="mb-4">Ayar Ekle</h5>
                 <form method="post" action="{{route('ecommerceSetting.store')}}" enctype="multipart/form-data">
                     @csrf
                     <input class="input" type="hidden" id="id" name="id" value="0">
@@ -26,6 +26,8 @@
                                     <option value="social">Sosyal Medya</option>
                                     <option value="general">Genel</option>
                                     <option value="information">Bilgilendirme</option>
+                                    <option value="shipping_address">Sevkiyat Adresi</option>
+                                    <option value="refund_address">Iade Adresi</option>
                                 </select>
 
                             </div>
@@ -149,7 +151,7 @@
 
 @section('customJS')
     <script type="module" src="{{asset('admin/ecommerceSetting.js')}}"></script>
-    <script src="https://cdn.tiny.cloud/1/oj6zyoqfb6eqi7142vqs78p5k23x3vdo28svzv867z9cd3fu/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/oeyw4fczbgzgtessykwa9j2ow3stvtz54fnla42oahw3aosa/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
     <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
     <script>

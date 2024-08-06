@@ -75,7 +75,7 @@ class EcommerceController extends Controller
 
     public function freeshipping()
     {
-        $data['products'] = Product::where('freeShipping', 1)->get();
+        $data['products'] = Product::where('free_shipping', 1)->get();
         return view('ecommerce/list', $data);
     }
 

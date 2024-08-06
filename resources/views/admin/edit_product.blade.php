@@ -17,35 +17,23 @@
             min-height: 34px; /* Minimum yüksekliği belirler */
         }
     </style>
+    <style>
+
+        .fileuploader {
+            max-width: 100%;
+        }
+    </style>
 
     <div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
         <div class="flex flex-col gap-4">
-            <h3 class="mb-4">Yeni Urun Ekle</h3>
+            <h3 class="mb-4">Urun Duzenle</h3>
 
-            <div data-v-2b03f412="" class="product-banner"
-                 style="background: linear-gradient(109deg, rgb(194, 10, 121) 0%, rgb(255, 170, 0) 100%);">
-                <div class="product-banner__wrapper">
-                    <div>
-                        <div data-v-1dc67076="" data-v-7fd4b0aa=""
-                             class="g-image product-banner__image" alt="">
-                            <img data-v-1dc67076="" alt=""
-                                 src="https://cdn.dsmcdn.com/seller-center/spm/seller-center-product/assets/product-desc-icon.svg">
-                        </div>
-                    </div>
-                    <div class="product-banner__info">
-                        <p class="product-banner__info--title"> Ürün
-                            Açıklaması </p>
-                        <p class="product-banner__info--desc"> Ürün açıklamasını detaylandırarak
-                            müşteriye daha fazla bilgi verebilir, satış adedinizi ve ürün değerlendirmelerinizi
-                            artırarak
-                            iade oranınızı iyileştirebilirsiniz. </p></div>
-                </div>
-            </div>
-            <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('product.update')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <input value="@if(isset($product->id)) {{$product->id}}@else 0 @endif" name="id" type="hidden">
-                <input type="hidden" id="productBrand" value="{{ isset($product) ? $product->brand : 0 }}">
-                <input type="hidden" id="productModel" value="{{ isset($product) ? $product->version : 0 }}">
+                <input value="@if(isset($product)) {{$product->id}}@else 0 @endif" name="product_variant_id"
+                       type="hidden">
+                <input value="@if(isset($product)) {{$product->product->id}}@else 0 @endif" name="id" type="hidden">
+                <input type="hidden" id="productBrand" value="{{ isset($product) ? $product->product->brand : 0 }}">
 
                 <div class="form-container vertical">
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -57,46 +45,73 @@
                                     <div class="form-item vertical">
                                         <label class="form-label mb-2">Urun Adi</label>
                                         <div>
-                                            <input class="input" type="text" name="name" value="{{old('name')}}" max="100" autocomplete="off" placeholder="Urun Adi" required>
+                                            <input class="input" type="text" name="name"
+                                                   value="{{old('name',$product->product->name)}}" max="100"
+                                                   autocomplete="off" placeholder="Urun Adi" required>
                                         </div>
                                     </div>
-                                    <div class="form-item vertical">
-                                        <label class="form-label mb-2">Kategori</label>
-                                        <div>
-                                            <select id="categories" name="categories"  class="form-control select2 product-categories" required>
-                                                <!-- Trendyol kategorileri buraya gelecek -->
-                                            </select>
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                        <div class="col-span-1">
+                                            <div class="form-item vertical">
+                                                <label class="form-label mb-2">Kategori</label>
+                                                <div>
+                                                    <select id="categories" data-id="{{$product->product->category}}"
+                                                            name="categories"
+                                                            class="form-control select2 product-categories" readonly>
+                                                        <!-- Trendyol kategorileri buraya gelecek -->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-span-1">
+                                            <div class="form-item vertical">
+                                                <label class="form-label mb-2">Model Kodu</label>
+                                                <input class="input" type="text" name="modelcode" autocomplete="off"
+                                                       value="{{old('modelcode',$product->product->modelcode)}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-span-1">
+                                            <div class="form-item vertical">
+                                                <label class="form-label mb-2">Barkod</label>
+                                                <input class="input" type="text" name="barcode" autocomplete="off"
+                                                       placeholder="Barkod Giriniz"
+                                                       value="{{old('barcode',$product->barcode)}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-span-1">
+                                            <div class="form-item vertical">
+                                                <label class="form-label mb-2">Marka</label>
+                                                <select class="input" id="brand" name="brand">
+                                                    <option>Seciniz</option>
+                                                    @foreach($brands as $item)
+                                                        <option value="{{$item->id}}"
+                                                                @if(isset($product->product) && $item->id == $product->product->brand) selected
+                                                                @endif oninput="getModel({{ isset($product) ? $product->product->brand : 0 }})">{{$item->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-span-1">
+                                            <div class="form-item vertical">
+                                                <label class="form-label mb-2">Onay Durumu</label>
+                                                <select class="input" name="status" disabled>
+                                                    <option value="1" {{ $product->product->status == 1 ? 'selected' : '' }}>
+                                                        Aktif
+                                                    </option>
+                                                    <option value="0" {{ $product->product->status == 0 ? 'selected' : '' }}>
+                                                        Pasif
+                                                    </option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="form-item vertical">
-                                        <label class="form-label mb-2">Model Kodu</label>
-                                        <input class="input" type="text" name="modelcode" autocomplete="off"
-                                               placeholder="Model Kodu Giriniz" value="{{old('modelcode')}}">
-                                    </div>
-                                    <div class="form-item vertical">
-                                        <label class="form-label mb-2">Barkod</label>
-                                        <input class="input" type="text" name="barcode" autocomplete="off"
-                                               placeholder="Barkod Giriniz" value="{{old('barcode')}}">
-                                    </div>
-                                    <div class="form-item vertical">
-                                        <label class="form-label mb-2">Marka</label>
-                                        <select class="input" id="brand" name="brand">
-                                            <option>Seciniz</option>
-                                            @foreach($brands as $item)
-                                                <option value="{{$item->id}}"
-                                                        @if(isset($product) && $item->id == $product->brand) selected
-                                                        @endif oninput="getModel({{ isset($product) ? $product->brand : 0 }}, {{ isset($product) ? $product->version : 0 }})">{{$item->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="form-item vertical" id="required-true">
-                                        <!-- Javascript İle Güncellenecek --></div>
-
+                                    <div class="form-item vertical form"><input type="file" name="files"
+                                                                                class="gallery_media"></div>
                                     <div class="form-item vertical">
                                         <label class="form-label mb-2">Aciklama</label>
                                         <textarea name="description">@if(isset($product))
-                                                {{$product->description}}
+                                                {{$product->product->description}}
                                             @endif</textarea>
                                     </div>
 
@@ -105,7 +120,7 @@
                                         <label class="form-label mb-2">Etiketler</label>
                                         <div>
                                             <input data-role="tagsinput" class="input" type="text" name="tags"
-                                                   value="@if(isset($product)) {{$product->tags}} @endif"
+                                                   value="@if(isset($product)) {{$product->product->tags}} @endif"
                                                    autocomplete="off" placeholder="Etiketler">
                                         </div>
                                     </div>
@@ -126,10 +141,15 @@
                                         </div>
                                     </div>
                                     <div class="product-banner__info">
-                                        <p class="product-banner__info--title"> Ürün Özellikleri</p>
-                                        <p class="product-banner__info--desc"> Ürün açıklamasını detaylandırarak
-                                            müşteriye daha fazla bilgi verebilir, satış adedinizi ve ürün
-                                            değerlendirmelerinizi artırarak iade oranınızı iyileştirebilirsiniz. </p>
+                                        <p class="product-banner__info--desc"> T.C. Ticaret Bakanlığı Tüketicinin
+                                            Korunması ve Piyasa Gözetimi Genel Müdürlüğü kararı doğrultusunda tedarik
+                                            edememe sebebiyle yapılacak iptaller, yalnızca önlenemeyecek mücbir bir
+                                            durumun olması halinde haklı bir iptal olarak kabul edilecektir. Bu durumlar
+                                            dışında iptal edilen siparişler için tarafınıza sipariş başına idari para
+                                            cezası yaptırımları uygulanabilir. İlgili kurum/kuruluşlarca tarafınıza
+                                            uygulanabilecek idari para cezası yaptırımlarına ilişkin olarak Trendyol’un
+                                            hiçbir sorumluluğunun bulunmayacağını önemle hatırlatırız.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -137,26 +157,48 @@
                         <div class="lg:col-span-3">
                             <div class="card adaptable-card mb-4">
                                 <div class="card-body">
-                                    <h5>Satış ve Varyant Bilgileri</h5>
-                                    <div class="form-item vertical">
-                                        <div id="category-details"></div>
-                                        <div id="required-true-preview"
-                                             class="flex-container required-false-preview-category">
-                                            <div class="g-image" alt="hourglass loader">
-                                                <img data-v-1dc67076="" alt="hourglass loader"
-                                                     src="https://cdn.dsmcdn.com/seller-center/spm/seller-center-product/assets/hourglass_loader.svg">
+                                    <h5>Satış Bilgileri</h5>
+                                    <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
+                                        <div class="md:col-span-2">
+                                            <div class="form-item vertical">
+                                                <label class="form-label mb-2">PSF</label>
+                                                <input class="input" type="text" name="retail_price" autocomplete="off"
+                                                       value="{{old('retail_price',$product->retail_price)}}">
                                             </div>
-                                            <span class="sub-title"> Kategori Seçimi </span>
-                                            <p class="description"> Satış ve Varyant bilgilerini doldurmak için
-                                                öncelikle bir kategori seçin. </p>
-                                            <button class="g-button -primary">
-                                                <div class="content -medium">Kategori Seç</div>
-                                            </button>
+                                        </div>
+                                        <div class="col-span-1">
+                                            <div class="form-item vertical">
+                                                <label class="form-label mb-2">Satış Fiyatı</label>
+                                                <input class="input" type="text" name="price" autocomplete="off"
+                                                       value="{{old('price',$product->price)}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-span-1">
+                                            <div class="form-item vertical">
+                                                <label class="form-label mb-2">Stok</label>
+                                                <input class="input" type="text" name="quantity" autocomplete="off"
+                                                       value="{{old('quantity',$product->quantity)}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-span-1">
+                                            <div class="form-item vertical">
+                                                <label class="form-label mb-2">Stok Kodu</label>
+                                                <input class="input" type="text" name="stock_code" autocomplete="off"
+                                                       value="{{old('stock_code',$product->stock_code)}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-span-1">
+                                            <div class="form-item vertical">
+                                                <label class="form-label mb-2">KDV</label>
+                                                <input class="input" type="text" name="tax" autocomplete="off"
+                                                       value="{{old('tax',$product->tax)}}">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="lg:col-span-3">
                             <div data-v-2b03f412="" class="product-banner"
                                  style="background: linear-gradient(134deg, rgb(117, 62, 255) 0%, rgb(40, 118, 255) 97.57%);">
@@ -189,24 +231,57 @@
                                     <h5>Ürün Özellikleri</h5>
                                     <div class="form-item vertical">
                                         <div id="required-false" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-                                        <div class="flex-container required-false-preview text-center">
-                                            <div class="g-image" style="margin: 0 auto" alt="hourglass loader">
-                                                <img alt="hourglass loader"
-                                                     src="https://cdn.dsmcdn.com/seller-center/spm/seller-center-product/assets/hourglass_loader.svg">
-                                            </div>
-                                            <span class="sub-title"> Kategori Seçimi </span>
-                                            <p class="description"> Satış ve Varyant bilgilerini
-                                                doldurmak için öncelikle bir kategori seçin. </p>
-                                            <button class="g-button -primary">
-                                                <div class="content -medium">Kategori Seç</div>
-                                            </button>
-                                        </div>
+                                        <div id="required-true" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
-
+                        <div class="lg:col-span-3">
+                            <div class="card adaptable-card mb-4">
+                                <div class="card-body">
+                                    <h5>Kargo & Teslimat Bilgileri</h5>
+                                    <div class="grid grid-cols-4 md:grid-cols-4 gap-4">
+                                        <div class="col-span-1">
+                                            <div class="form-item vertical">
+                                                <label class="form-label mb-2">Desi</label>
+                                                <input class="input" type="text" name="desi" autocomplete="off"
+                                                       value="{{old('desi',$product->product->desi)}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-span-1">
+                                            <div class="form-item vertical">
+                                                <label class="form-label mb-2">Gönderim Süresi</label>
+                                                <input class="input" type="text" name="Delivery time" autocomplete="off"
+                                                       value="{{old('delivery_time',$product->product->delivery_time)}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-span-1">
+                                            <div class="form-item vertical">
+                                                <label class="form-label mb-2">Sevkiyat Adresi</label>
+                                                <select class="input" name="shipping_address">
+                                                    @foreach($address as $item)
+                                                        @if($item->type == 'shipping_address')
+                                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                                            @endif
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-span-1">
+                                            <div class="form-item vertical">
+                                                <label class="form-label mb-2">İade Adresi</label>
+                                                <select class="input" name="return_address">
+                                                    @foreach($address as $item)
+                                                        @if($item->type == 'refund_address')
+                                                        <option value="{{$item->id}}">{{$item->name}}</option> @endif
+                                                    @endforeach
+                                                </select></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="lg:col-span-3">
                             <div class="card adaptable-card mb-4">
@@ -217,7 +292,8 @@
                                         <label class="form-label"></label>
                                         <div>
                                             <label class="checkbox-label">
-                                                <input class="checkbox" type="checkbox" value="true" name="bundle" @if(isset($product) && $item->bundle == 1) checked @endif>
+                                                <input class="checkbox" type="checkbox" value="true" name="bundle"
+                                                       @if(isset($product) && $item->bundle == 1) checked @endif>
                                                 <span>Bundle</span>
                                             </label>
                                         </div>
@@ -226,7 +302,9 @@
                                         <label class="form-label"></label>
                                         <div>
                                             <label class="checkbox-label">
-                                                <input class="checkbox" type="checkbox" value="true" name="free_shipping" @if(isset($product) && $item->bundle == 1) checked @endif>
+                                                <input class="checkbox" type="checkbox" value="true"
+                                                       name="free_shipping"
+                                                       @if(isset($product) && $item->bundle == 1) checked @endif>
                                                 <span>Kargo Bedava</span>
                                             </label>
                                         </div>
@@ -301,6 +379,7 @@
     <!-- styles -->
     <link href="{{asset('admin/fileuploader/jquery.fileuploader.min.css')}}" media="all" rel="stylesheet">
     <link href="{{asset('admin/product/upload.css')}}" media="all" rel="stylesheet">
+    <link href="{{asset('admin/product/gallery.css')}}" media="all" rel="stylesheet">
 @endsection
 @section('customJS')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
@@ -309,9 +388,9 @@
 
     <script src="{{asset('admin/fileuploader/jquery.fileuploader.min.js')}}" type="text/javascript"></script>
 
-    <script src="{{asset('admin/product/upload.js')}}" type="text/javascript"></script>
+    <script src="{{asset('admin/product/editupload.js')}}" type="text/javascript"></script>
 
-    <script src="{{asset('admin/product.js?v=').rand(0,99999)}}"></script>
+    <script src="{{asset('admin/edit_product.js?v=').rand(0,99999)}}"></script>
 
     <script>
         $('#tags').tagsinput({
@@ -325,7 +404,8 @@
     <script src="{{asset('vendors/quill/quill.min.js')}}"></script>
     <script src="{{asset('js/pages/new-product.js')}}"></script>
     <!-- Place the first <script> tag in your HTML's <head> -->
-    <script src="https://cdn.tiny.cloud/1/oeyw4fczbgzgtessykwa9j2ow3stvtz54fnla42oahw3aosa/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/oeyw4fczbgzgtessykwa9j2ow3stvtz54fnla42oahw3aosa/tinymce/7/tinymce.min.js"
+            referrerpolicy="origin"></script>
     <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
     <script>
         tinymce.init({
@@ -351,7 +431,7 @@
             $('input[name="files"]').fileuploader('destroy'); // Eğer kütüphane destroy metodunu destekliyorsa
         });
 
-        $('#category-details').on('change','input[type="text"]',function () {
+        $('#category-details').on('change', 'input[type="text"]', function () {
             $('#category-details').find('input[type="text"][id^="priceInput"]').each(function () {
                 new Cleave(this, {
                     numeral: true,
@@ -363,7 +443,7 @@
             });
         })
 
-     </script>
+    </script>
 
 @endsection
 
