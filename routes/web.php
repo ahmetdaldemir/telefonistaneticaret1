@@ -86,6 +86,7 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
         Route::get('delete', [BrandController::class, 'destroy'])->name('delete');
         Route::post('store', [BrandController::class, 'store'])->name('store');
         Route::post('update', [BrandController::class, 'update'])->name('update');
+        Route::post('update_status', [BrandController::class, 'update_status'])->name('update_status');
     });
 
     Route::prefix('product')->name('product.')->middleware(['admin'])->group(function () {
@@ -108,6 +109,9 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
         Route::post('image-upload', [ProductController::class, 'imageUpload'])->name('image-upload');
         Route::post('edit-image-upload', [ProductController::class, 'editImageUpload'])->name('edit-image-upload');
         Route::post('ajax_remove_file', [ProductController::class, 'removeFile'])->name('ajax_remove_file');
+        Route::post('update_price_stock', [ProductController::class, 'update_price_stock'])->name('update_price_stock');
+        Route::post('update_status', [ProductController::class, 'update_status'])->name('update_status');
+        Route::post('update_variant_status', [ProductController::class, 'update_variant_status'])->name('update_variant_status');
 
     });
 

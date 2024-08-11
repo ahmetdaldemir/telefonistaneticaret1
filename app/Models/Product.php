@@ -65,6 +65,11 @@ class Product extends BaseModel {
         return $this->hasMany(ProductImages::class, 'product_id', 'id');
     }
 
+    public static function count()
+    {
+        return self::all();
+     }
+
     protected static function boot()
     {
         parent::boot();

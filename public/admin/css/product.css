@@ -488,3 +488,31 @@
      position: relative;
      display: inline-block;
  }
+
+
+
+.checkbox {
+    height: 1rem;
+    width: 1rem;
+
+}
+
+.checkbox-label {
+ margin-right: 0 !important;
+
+}
+
+
+.price-stock-info {
+    display: flex;
+    gap: var(--bl-size-l);
+    margin-bottom: var(--bl-size-2xl);
+    width: 100%;
+}
+.price-stock-info .price-stock-content  {
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    gap: var(--bl-size-m);
+}
+

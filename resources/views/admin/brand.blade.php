@@ -41,44 +41,62 @@
             </div>
         </div>
     </div>
-    <main class="h-full">
-        <div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
-            <div class="container mx-auto">
-                <div class="card adaptable-card">
-                    <div class="card-body">
-                        <div class="lg:flex items-center justify-between mb-4">
-                            <h3 class="mb-4 lg:mb-0">Markalar</h3>
-                            <button class="btn btn-two-tune btn-sm" data-bs-toggle="modal" data-bs-target="#brandBasic">
+    <div class="subbanner alert-dismissible bg-primary-50 dark:bg-primary-500 text-primary-500 dark:text-primary-100">
+        <div class="alert-content">
+            <div>
+                <h3>Markalar</h3>
+            </div>
+            <div slot="left">
+
+            </div>
+        </div>
+        <div slot="right" class="float-right">
+            <div class="grid grid-cols-1 gap-1">
+                <button  class="btn btn-sm bg-rose-600 text-white" data-bs-toggle="modal" data-bs-target="#brandBasic">
                                 <span class="flex items-center justify-center gap-2">
                                     <span class="text-lg">
                                         <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
                                     </span>
-                                    <span id="brandBasic">Yeni Marka</span>
+                                    <span id="brandBasic">Yeni Marka Ekle</span>
                                 </span>
-                            </button>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
+            <div class="container mx-auto">
+                <div class="card adaptable-card">
+                    <div class="card-body brandList">
+                        <div class="lg:flex items-center justify-between mb-4">
+
                         </div>
                         <div class="overflow-x-auto">
-                            <table id="product-list-data-table" class="table-default table-hover data-table">
+                            <table id="product-list-data-table" class="table-default table-hover">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Resim</th>
-                                    <th>Marka Adi</th>
-                                    <th>Status</th>
-                                    <th></th>
+                                    <th style="font-size:12px;width: 5%" class="text-center">ID</th>
+                                    <th style="font-size:12px;width: 5%" class="text-center">Resim</th>
+                                    <th style="font-size:12px;width: 80%" class="text-center">Marka Adi</th>
+                                    <th style="font-size:12px;width: 5%" class="text-center">Status</th>
+                                    <th style="font-size:12px;width: 5%" class="text-center"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($brands as $brand)
                                 <tr>
 
-                                    <td>{{$brand->id}}</td>
+                                    <td style="text-align: center">#{{$brand->id}}</td>
                                         <td>
                                             <div class="flex items-center">
-                                                <span class="avatar avatar-rounded avatar-md">
-                                                    <img class="avatar-img avatar-rounded" src="{{asset('storage/brand/'.$brand->img)}}" loading="lazy">
+                                                <span class="avatar avatar-rounded avatar-xs" style="margin: 0 auto">
+                                                    @if($brand->img)
+                                                    <img class="avatar-img avatar-rounded" src="{{asset('storage/brand/'.$brand->img)}}"  loading="lazy">
+                                                    @else
+                                                        <img class="avatar-img avatar-rounded" src="{{asset('admin/img/others/upload.png')}}"  loading="lazy">
+                                                    @endif
                                                 </span>
                                             </div>
                                         </td>
@@ -86,9 +104,11 @@
                                         <span>{{$brand->name}}</span>
                                     </td>
                                     <td>
-                                        <div class="flex items-center gap-2">
-                                            <span class="badge-dot bg-emerald-500"></span>
-                                            <span class="capitalize font-semibold text-emerald-500">In Stock</span>
+                                        <div class="flex items-center gap-2" style="justify-content: space-around;">
+                                            <label class="switcher">
+                                                <input type="checkbox" class="brandStatus" data-id="{{$brand->id}}" data-is_status="{{$brand->is_status}}"  @if($brand->is_status) checked @endif>
+                                                <span class="switcher-toggle"></span>
+                                            </label>
                                         </div>
                                     </td>
                                     <td>
@@ -116,11 +136,20 @@
                 </div>
             </div>
         </div>
-    </main>
+
 
 @endsection
 
 @section('customJS')
     <script src="{{asset('admin/brand.js')}}"></script>
+@endsection
+@section('customCSS')
 
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/css/table.css')}}"/>
+    <style>
+        .table-default thead > tr > th {
+            padding-top: 0.75rem !important;
+            padding-bottom: .75rem !important;
+        }
+    </style>
 @endsection

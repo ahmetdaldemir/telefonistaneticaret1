@@ -315,7 +315,6 @@
 
 @endsection
 @section('customCSS')
-    <link rel="stylesheet" type="text/css" href="{{asset('admin/css/default.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/dashboard.css')}}">
 
 @endsection

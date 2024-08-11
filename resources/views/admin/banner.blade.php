@@ -53,7 +53,20 @@
             </div>
         </div>
     </div>
-    <main class="h-full">
+    <div class="subbanner alert-dismissible bg-primary-50 dark:bg-primary-500 text-primary-500 dark:text-primary-100">
+        <div class="alert-content">
+            <div>
+                <h3>Bannerlar</h3>
+            </div>
+            <div slot="left">
+
+            </div>
+        </div>
+        <div slot="right" class="float-right">
+            <div class="grid grid-cols-4 gap-4">
+            </div>
+        </div>
+    </div>
         <div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
             <div class="container mx-auto">
                 <div class="card adaptable-card">
@@ -126,7 +139,6 @@
                 </div>
             </div>
         </div>
-    </main>
 
 @endsection
 

@@ -1,32 +1,31 @@
 @extends('layout.admin.admin')
 
 @section('content')
-    <style>
-        .category-box {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px;
-        }
 
-        .select2-container {
-            width: 100% !important; /* Genişliği ayarlar */
-        }
-
-        .select2-selection {
-            height: auto !important; /* Yüksekliği otomatik yapar */
-            min-height: 34px; /* Minimum yüksekliği belirler */
-        }
-    </style>
-    <style>
-
-        .fileuploader {
-            max-width: 100%;
-        }
-    </style>
+    <div class="subbanner alert-dismissible bg-primary-50 dark:bg-primary-500 text-primary-500 dark:text-primary-100">
+        <div class="alert-content">
+            <div>
+                <h3>Ürün Düzenle</h3>
+            </div>
+            <div slot="left">
+                <div class="listing-limit-bar limit-info">
+                    <div class="container"><p class="title">Ürün Limit Seviyesi</p>
+                        <p>Seviye 1</p>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="container"><p class="title">Ürün Adeti</p>
+                        <p class="supplier-limit-info"><span class="">{{$count->count()}}</span><span>/</span><span>50000</span></p></div>
+                </div>
+            </div>
+        </div>
+        <div slot="right" class="float-right">
+            <div class="grid grid-cols-4 gap-4">
+            </div>
+        </div>
+    </div>
 
     <div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
         <div class="flex flex-col gap-4">
-            <h3 class="mb-4">Urun Duzenle</h3>
 
             <form action="{{route('product.update')}}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -365,8 +364,26 @@
         .fileuploader {
             max-width: 650px;
             margin: 15px;
+            max-width: 100%;
         }
     </style>
+    <style>
+        .category-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .select2-container {
+            width: 100% !important; /* Genişliği ayarlar */
+        }
+
+        .select2-selection {
+            height: auto !important; /* Yüksekliği otomatik yapar */
+            min-height: 34px; /* Minimum yüksekliği belirler */
+        }
+    </style>
+
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/product.css')}}">
     <style>
         .required-false-preview-hide {

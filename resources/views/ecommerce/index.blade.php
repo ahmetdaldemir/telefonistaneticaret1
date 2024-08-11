@@ -170,17 +170,17 @@
                 </div>
                 <div class="product-5 product-m no-arrow">
                     @foreach($mounthDeals as $item)
-                    <div class="product-box product-wrap">
+                     <div class="product-box product-wrap">
                         <div class="img-wrapper">
                             <div class="front">
-                                <a href="{{route('detail',['slug'=>$item->product->slug])}}"><img  src="{{$item->product->img}}"  class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                <a href="{{route('detail',['slug'=>$item->product_variants->product->slug])}}"><img  src="{{$item->product_variants->images[0]->image}}"  class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                             <div class="cart-box style-1 rounded-0">
                                 <button onclick="openCart()" title="Sepete Ekle">
-                                    <i  data-id="{{$item->product->id}}" class="ti-shopping-cart"></i>
+                                    <i  data-id="{{$item->product_variants->product->id}}" class="ti-shopping-cart"></i>
                                 </button>
                                 <a href="javascript:void(0)" title="Add to Wishlist">
-                                    <i class="ti-heart" data-id="{{$item->product->id}}" aria-hidden="true"></i>
+                                    <i class="ti-heart" data-id="{{$item->product_variants->product->id}}" aria-hidden="true"></i>
                                 </a>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quick View">
                                     <i class="ti-search" aria-hidden="true"></i>
@@ -196,10 +196,10 @@
                                 <i class="fa fa-star"></i>
                                 @endfor
                             </div>
-                            <a href="{{route('detail',['slug',$item->product->slug])}}">
-                                <h6>{{$item->product->name}}</h6>
+                            <a href="{{route('detail',['slug',$item->product_variants->product->slug])}}">
+                                <h6>{{$item->product_variants->product->name}}</h6>
                             </a>
-                            <h4>{{$item->product->bulkDiscountPrice}} ₺</h4>
+                            <h4>{{$item->product_variants->price}} ₺</h4>
                             <ul class="color-variant">
                                 <li class="bg-color1"></li>
                                 <li class="bg-color3"></li>

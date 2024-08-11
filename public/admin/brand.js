@@ -1,3 +1,10 @@
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
 function brandEdit(id) {
     $('#brandBasic').click(function () {
         $('#saveFormButton').text('Düzenle');
@@ -26,3 +33,34 @@ $('#brandBasic').click(function () {
 })
 
 
+$('#product-list-data-table').DataTable();
+
+$('.brandList').on('change','.brandStatus',function () {
+    var id = $(this).data('id');
+    var is_status = $(this).data('is_status');
+    $.ajax({
+        type: 'POST',
+        url: '/brand/update_status',  // Sunucuda işlenecek URL
+        data: {
+            id: id,
+            is_status: is_status,
+        },
+        success: function(response) {
+            Swal.fire({
+                title: ''+response.title+'',
+                text: response.message,
+                icon: ''+response.icon+'',
+                timer:  2000,
+                showConfirmButton: false
+            }).then(() => {
+                window.location.reload();
+            });
+
+        },
+        error: function(xhr, status, error) {
+            console.error('Durum güncelleme hatası:', error);
+            Swal.fire('Durum bir hata oluştu.');
+
+        }
+    });
+})

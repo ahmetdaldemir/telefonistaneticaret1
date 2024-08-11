@@ -4311,3 +4311,45 @@ Did you mean one of these?
 #15 /Users/emila/PhpstormProjects/telefonistan/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #16 {main}
 "} 
+[2024-08-06 19:38:31] local.ERROR: Attempt to read property "productVirtualSetting" on null {"exception":"[object] (ErrorException(code: 0): Attempt to read property \"productVirtualSetting\" on null at /Users/emila/PhpstormProjects/telefonistan/app/Console/Commands/TrendyolProduct.php:63)
+[stacktrace]
+#0 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(270): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Attempt to read...', '/Users/emila/Ph...', 63)
+#1 /Users/emila/PhpstormProjects/telefonistan/app/Console/Commands/TrendyolProduct.php(63): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'Attempt to read...', '/Users/emila/Ph...', 63)
+#2 /Users/emila/PhpstormProjects/telefonistan/app/Console/Commands/TrendyolProduct.php(42): app\\Console\\Commands\\TrendyolProduct->getProduct(NULL)
+#3 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): app\\Console\\Commands\\TrendyolProduct->handle()
+#4 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#5 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#6 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#7 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Container/Container.php(661): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#8 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Console/Command.php(183): Illuminate\\Container\\Container->call(Array)
+#9 /Users/emila/PhpstormProjects/telefonistan/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#10 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Console/Command.php(152): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#11 /Users/emila/PhpstormProjects/telefonistan/vendor/symfony/console/Application.php(1078): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#12 /Users/emila/PhpstormProjects/telefonistan/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand(Object(app\\Console\\Commands\\TrendyolProduct), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 /Users/emila/PhpstormProjects/telefonistan/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Console/Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#15 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 /Users/emila/PhpstormProjects/telefonistan/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 {main}
+"} 
+[2024-08-06 19:39:00] local.ERROR: Attempt to read property "productVirtualSetting" on null {"exception":"[object] (ErrorException(code: 0): Attempt to read property \"productVirtualSetting\" on null at /Users/emila/PhpstormProjects/telefonistan/app/Console/Commands/TrendyolProduct.php:63)
+[stacktrace]
+#0 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(270): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Attempt to read...', '/Users/emila/Ph...', 63)
+#1 /Users/emila/PhpstormProjects/telefonistan/app/Console/Commands/TrendyolProduct.php(63): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'Attempt to read...', '/Users/emila/Ph...', 63)
+#2 /Users/emila/PhpstormProjects/telefonistan/app/Console/Commands/TrendyolProduct.php(42): app\\Console\\Commands\\TrendyolProduct->getProduct(NULL)
+#3 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): app\\Console\\Commands\\TrendyolProduct->handle()
+#4 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#5 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#6 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#7 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Container/Container.php(661): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#8 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Console/Command.php(183): Illuminate\\Container\\Container->call(Array)
+#9 /Users/emila/PhpstormProjects/telefonistan/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#10 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Console/Command.php(152): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#11 /Users/emila/PhpstormProjects/telefonistan/vendor/symfony/console/Application.php(1078): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#12 /Users/emila/PhpstormProjects/telefonistan/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand(Object(app\\Console\\Commands\\TrendyolProduct), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 /Users/emila/PhpstormProjects/telefonistan/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Console/Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#15 /Users/emila/PhpstormProjects/telefonistan/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 /Users/emila/PhpstormProjects/telefonistan/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 {main}
+"} 

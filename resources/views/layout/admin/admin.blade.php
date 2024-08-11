@@ -7,9 +7,12 @@
     <link rel="shortcut icon" href="{{asset('admin/img/favicon.ico')}}">
     <title>Elstar - HTML Tailwind Admin Template</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/css/default.css')}}">
 
     <!-- Core CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/css/modal.css')}}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet"/>
     @yield('customCSS')
 </head>
@@ -994,6 +997,7 @@
                 <div class="h-full flex flex-auto flex-col justify-between">
 
                         <main class="container mx-auto h-full">
+
                             <!-- Content start -->
                             @yield('content')
                             <!-- Content end -->
@@ -1072,10 +1076,10 @@
 
 <!-- Core Vendors JS -->
 <script src="{{asset('admin/js/vendors.min.js')}}"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script src="{{asset('admin/vendors/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('admin/vendors/datatables/dataTables.custom-ui.min.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{asset('admin/vendors/sweetalert.js')}}"></script>
 <script src="{{asset('admin/js/app.min.js')}}"></script>
 
 <script src="{{asset('admin/core.js')}}"></script>

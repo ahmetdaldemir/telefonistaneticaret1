@@ -14,4 +14,9 @@ class MonthlyDeal extends Model
     {
         return $this->hasOne(Product::class,'id','product_id');
     }
+
+    public function product_variants()
+    {
+        return $this->hasOne(ProductVariant::class,'id','product_id');
+    }
 }

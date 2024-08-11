@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Console\Commands\MounthDeal;
+use App\Filters\ProductFilter;
 use App\Helpers\CategoryHelper;
 use App\Helpers\GeneralCategoryHelper;
 use App\Http\Controllers\Controller;
@@ -35,9 +36,26 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data['products'] = ProductVariant::with('product')->get();
+        $products = [];
+        if (!$request->bestSeller) {
+            $filters = array_filter($request->only(['categories', 'brand', 'modelcode', 'name', 'stockcode', 'barcode']), function ($value) {
+                return !is_null($value) && $value !== '';
+            });
+            $perPage = $request->get('perPage', 15);
+
+            $products = (new ProductFilter($filters))
+                ->apply(ProductVariant::with('product'), $perPage);
+        } else {
+            $filters = $request->only(['bestSeller']);
+            $perPage = $request->get('perPage', 15);
+            $products = (new ProductFilter($filters))->apply(ProductVariant::with('product'), $perPage);
+        }
+
+        $data['products'] = $products;
+        $data['count'] = Product::count();
+        $data['brands'] = Brand::all();
         return view('admin/product', $data);
     }
 
@@ -51,7 +69,7 @@ class ProductController extends Controller
         $data['categories'] = Category::all();
         $data['brands'] = Brand::all();
         $data['attributeGroups'] = AttributeGroup::all();
-
+        $data['count'] = Product::count();
 
         return view('admin/new_product', $data);
     }
@@ -197,7 +215,8 @@ class ProductController extends Controller
         $data['brands'] = Brand::all();
         $data['attributeGroups'] = AttributeGroup::all();
         $data['product'] = ProductVariant::with('product')->find($request->id);
-        $data['address'] = EcommerceSetting::whereIn('type',['shipping_address','refund_address'])->get();
+        $data['address'] = EcommerceSetting::whereIn('type', ['shipping_address', 'refund_address'])->get();
+        $data['count'] = Product::count();
         return view('admin/edit_product', $data);
     }
 
@@ -230,7 +249,7 @@ class ProductController extends Controller
         $product->save();
 
 
-        $product->variants()->where('product_id' , $request->id)->where('id' , $request->product_variant_id)->update([
+        $product->variants()->where('product_id', $request->id)->where('id', $request->product_variant_id)->update([
             'retail_price' => $productData['retail_price'],
             'price' => $productData['price'],
             'quantity' => $productData['quantity'],
@@ -240,17 +259,17 @@ class ProductController extends Controller
         ]);
 
 
-             foreach ($attributesData as $key => $value) {
-                 foreach ($value as $item => $itemValue) {
-                    $product->attributes()->updateOrCreate(
-                        ['attribute' => $item], // Eşleşme koşulu (benzersiz alan)
-                        [   // Güncellenebilir / Oluşturulacak alanlar
-                            'attribute_values' => $itemValue,
-                        ]
-                    );
+        foreach ($attributesData as $key => $value) {
+            foreach ($value as $item => $itemValue) {
+                $product->attributes()->updateOrCreate(
+                    ['attribute' => $item], // Eşleşme koşulu (benzersiz alan)
+                    [   // Güncellenebilir / Oluşturulacak alanlar
+                        'attribute_values' => $itemValue,
+                    ]
+                );
             }
-            }
-         return redirect()->back();
+        }
+        return redirect()->back();
     }
 
     /**
@@ -584,4 +603,41 @@ class ProductController extends Controller
     {
         return str_replace(storage_path('app/public/product/'), '', $file);
     }
+
+    public function update_price_stock(Request $request)
+    {
+        if ($request->retail_price < $request->price) {
+            return response()->json(['message' => 'Satış Fiyatı , Perakende satış fiyatından büyük olamaz', 'title' => 'Başarısız', 'succcess' => false, 'icon' => 'warning'], 200);
+        }
+        $product_ids = $request->product_ids;
+        foreach ($product_ids as $product_id) {
+            $productvariant = ProductVariant::find($product_id);
+            if ($request->filled('retail_price')) {
+                $productvariant->retail_price = $request->retail_price;
+            }
+            if ($request->filled('price')) {
+                $productvariant->price = $request->price;
+            }
+            if ($request->filled('quantity')) {
+                $productvariant->quantity = $request->quantity;
+            }
+            $productvariant->save();
+        }
+        return response()->json(['message' => 'Fiyat ve stoklar başarıyla güncellendi! Lütfen Bekleyiniz', 'title' => 'Başarılı', 'succcess' => true, 'icon' => 'success'], 200);
+    }
+
+
+    public function update_variant_status(Request $request)
+    {
+
+        $productvariant = ProductVariant::find($request->id);
+        $productvariant->is_active = !(($request->is_active == 1));
+        $status = $productvariant->save();
+        if ($status) {
+            return response()->json(['message' => 'Ürün durumu değiştirildi', 'title' => 'Başarılı', 'succcess' => true, 'icon' => 'success'], 200);
+        }
+        return response()->json(['message' => 'Ürün durumu değiştirlemedi', 'title' => 'Başarısız', 'succcess' => false, 'icon' => 'warning'], 200);
+    }
+
+
 }

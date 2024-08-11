@@ -1,0 +1,87 @@
+@media (min-width: 1280px){
+    .container{
+        max-width: 100% !important;
+    }
+}
+
+.bg-primary-50 {
+    background-color: #ffffff !important;
+}
+
+.subbanner {
+    position: relative;
+    display: flex;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.limit-info {
+    margin-left: 1rem;
+}
+  .listing-limit-bar {
+     display: flex;
+     align-items: center;
+     gap: .5rem;
+     font-weight: var(--bl-font-weight-medium);
+     font-size: var(--bl-font-size-s);
+     line-height: var(--bl-font-size-m);
+ }
+
+.listing-limit-bar .container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bl-size-3xs);
+}
+
+.listing-limit-bar .container .title {
+    white-space: nowrap;
+    font-weight: var(--bl-font-weight-regular);
+    font-size: var(--bl-font-size-s);
+    line-height: var(--bl-font-size-m);
+    color: var(--bl-color-neutral-dark);
+}
+.listing-limit-bar .divider {
+    width: 1px;
+    height: var(--bl-size-xl);
+    background-color: var(--bl-color-tertiary-hover);
+}
+.listing-limit-bar .container .supplier-limit-info {
+    white-space: nowrap;
+}
+
+.float-right{
+    float: right;
+}
+
+.export-info__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--bl-border-radius-m);
+    padding: 0px var(--bl-size-xl);
+    background: linear-gradient(90deg, #2372e7 0%, #1951a4 100%);
+    height: 80px;
+    margin-bottom: 30px;
+}
+.export-info__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--bl-size-xl);
+}
+.export-info__wrapper img {
+    width: 120px;
+}
+.export-info__header-text {
+    font-weight: var(--bl-font-weight-regular);
+    color: #fff;
+    font-size: var(--bl-font-size-2xl);
+    line-height: var(--bl-font-size-3xl);
+    margin-bottom: var(--bl-size-2xs);
+}
+.export-info__body-text {
+    font-weight: var(--bl-font-weight-regular);
+    color: #fff;
+    font-size: var(--bl-font-size-m);
+    line-height: var(--bl-font-size-l);
+}

@@ -1,34 +1,40 @@
 @extends('layout.admin.admin')
 
 @section('content')
-    <style>
-        .category-box {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px;
-        }
 
-        .select2-container {
-            width: 100% !important; /* Genişliği ayarlar */
-        }
+    <div class="subbanner alert-dismissible bg-primary-50 dark:bg-primary-500 text-primary-500 dark:text-primary-100">
+        <div class="alert-content">
+            <div>
+                <h3>Yeni Ürün Ekle</h3>
+            </div>
+            <div slot="left">
+                <div class="listing-limit-bar limit-info">
+                    <div class="container"><p class="title">Ürün Limit Seviyesi</p>
+                        <p>Seviye 1</p>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="container"><p class="title">Ürün Adeti</p>
+                        <p class="supplier-limit-info"><span class="">{{$count->count()}}</span><span>/</span><span>50000</span></p></div>
+                </div>
+            </div>
+        </div>
+        <div slot="right" class="float-right">
+            <div class="grid grid-cols-4 gap-4">
+            </div>
+        </div>
+    </div>
 
-        .select2-selection {
-            height: auto !important; /* Yüksekliği otomatik yapar */
-            min-height: 34px; /* Minimum yüksekliği belirler */
-        }
-    </style>
 
     <div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
         <div class="flex flex-col gap-4">
-            <h3 class="mb-4">Yeni Urun Ekle</h3>
 
-            <div data-v-2b03f412="" class="product-banner"
+            <div  class="product-banner"
                  style="background: linear-gradient(109deg, rgb(194, 10, 121) 0%, rgb(255, 170, 0) 100%);">
                 <div class="product-banner__wrapper">
                     <div>
-                        <div data-v-1dc67076="" data-v-7fd4b0aa=""
+                        <div  data-v-7fd4b0aa=""
                              class="g-image product-banner__image" alt="">
-                            <img data-v-1dc67076="" alt=""
+                            <img  alt=""
                                  src="https://cdn.dsmcdn.com/seller-center/spm/seller-center-product/assets/product-desc-icon.svg">
                         </div>
                     </div>
@@ -71,8 +77,7 @@
 
                                     <div class="form-item vertical">
                                         <label class="form-label mb-2">Model Kodu</label>
-                                        <input class="input" type="text" name="modelcode" autocomplete="off"
-                                               placeholder="Model Kodu Giriniz" value="{{old('modelcode')}}">
+                                        <input class="input" type="text" name="modelcode" autocomplete="off" placeholder="Model Kodu Giriniz" value="{{old('modelcode')}}">
                                     </div>
                                     <div class="form-item vertical">
                                         <label class="form-label mb-2">Barkod</label>
@@ -115,13 +120,13 @@
 
                         </div>
                         <div class="lg:col-span-3">
-                            <div data-v-2b03f412="" class="product-banner"
+                            <div  class="product-banner"
                                  style="background:linear-gradient(90deg, rgb(35, 114, 231) 0%, rgb(25, 81, 164) 100%)">
                                 <div class="product-banner__wrapper">
                                     <div>
-                                        <div data-v-1dc67076="" data-v-7fd4b0aa=""
+                                        <div  data-v-7fd4b0aa=""
                                              class="g-image product-banner__image" alt="">
-                                            <img data-v-1dc67076="" alt=""
+                                            <img  alt=""
                                                  src="https://cdn.dsmcdn.com/seller-center/spm/seller-center-product/assets/product-desc-icon.svg">
                                         </div>
                                     </div>
@@ -143,7 +148,7 @@
                                         <div id="required-true-preview"
                                              class="flex-container required-false-preview-category">
                                             <div class="g-image" alt="hourglass loader">
-                                                <img data-v-1dc67076="" alt="hourglass loader"
+                                                <img  alt="hourglass loader"
                                                      src="https://cdn.dsmcdn.com/seller-center/spm/seller-center-product/assets/hourglass_loader.svg">
                                             </div>
                                             <span class="sub-title"> Kategori Seçimi </span>
@@ -158,13 +163,12 @@
                             </div>
                         </div>
                         <div class="lg:col-span-3">
-                            <div data-v-2b03f412="" class="product-banner"
-                                 style="background: linear-gradient(134deg, rgb(117, 62, 255) 0%, rgb(40, 118, 255) 97.57%);">
+                            <div  class="product-banner" style="background: linear-gradient(134deg, rgb(117, 62, 255) 0%, rgb(40, 118, 255) 97.57%);">
                                 <div class="product-banner__wrapper">
                                     <div>
-                                        <div data-v-1dc67076="" data-v-7fd4b0aa="" class="g-image product-banner__image"
+                                        <div  data-v-7fd4b0aa="" class="g-image product-banner__image"
                                              alt="">
-                                            <img data-v-1dc67076="" alt=""
+                                            <img  alt=""
                                                  src="https://cdn.dsmcdn.com/seller-center/spm/seller-center-product/assets/product-image-icon.svg">
                                         </div>
                                     </div>
@@ -289,6 +293,22 @@
             margin: 15px;
         }
     </style>
+    <style>
+        .category-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .select2-container {
+            width: 100% !important; /* Genişliği ayarlar */
+        }
+
+        .select2-selection {
+            height: auto !important; /* Yüksekliği otomatik yapar */
+            min-height: 34px; /* Minimum yüksekliği belirler */
+        }
+    </style>
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/product.css')}}">
     <style>
         .required-false-preview-hide {
@@ -303,7 +323,6 @@
     <link href="{{asset('admin/product/upload.css')}}" media="all" rel="stylesheet">
 @endsection
 @section('customJS')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/cleave.js"></script>
 
@@ -311,7 +330,7 @@
 
     <script src="{{asset('admin/product/upload.js')}}" type="text/javascript"></script>
 
-    <script src="{{asset('admin/product.js?v=').rand(0,99999)}}"></script>
+    <script src="{{asset('admin/new-product.js?v=').rand(0,99999)}}"></script>
 
     <script>
         $('#tags').tagsinput({
@@ -322,8 +341,8 @@
 
         });
     </script>
-    <script src="{{asset('vendors/quill/quill.min.js')}}"></script>
-    <script src="{{asset('js/pages/new-product.js')}}"></script>
+    <script src="{{asset('admin/vendors/quill/quill.min.js')}}"></script>
+    <script src="{{asset('admin/js/pages/new-product.js')}}"></script>
     <!-- Place the first <script> tag in your HTML's <head> -->
     <script src="https://cdn.tiny.cloud/1/oeyw4fczbgzgtessykwa9j2ow3stvtz54fnla42oahw3aosa/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
     <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
@@ -334,7 +353,6 @@
             toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
         });
     </script>
-
 
     <script>
 

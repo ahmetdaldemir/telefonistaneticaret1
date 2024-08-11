@@ -1,0 +1,10 @@
+.table-default thead > tr > th {
+    border: 1px solid #ccc !important;
+    padding-top: 0 !important;
+    padding-bottom:  0 !important;
+}
+.table-default tbody > tr > td {
+
+    border: 1px solid #eee !important;
+    padding: 0 0.5rem !important;
+}

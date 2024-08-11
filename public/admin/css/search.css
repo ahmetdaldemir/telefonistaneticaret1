@@ -1,0 +1,61 @@
+.product-listing-top-view {
+    margin-bottom:30px;
+    display: flex;
+    flex-direction: column;
+    background: var(--bl-color-neutral-full);
+    border-radius: var(--bl-border-radius-m);
+}
+
+.tabs-container {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--bl-color-neutral-full);
+    border-bottom: var(--bl-size-4xs) solid var(--bl-color-neutral-lightest);
+}
+
+.tabs-container .tab-container {
+    position: relative;
+    cursor: pointer;
+    margin-bottom: -2px;
+    padding: 0 var(--bl-size-xl);
+}
+
+.tabs-container .selected .content {
+    border-bottom: 2px solid var(--bl-color-primary);
+}
+
+.tabs-container .tab-container .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(var(--bl-size-3xl) + var(--bl-size-s));
+}
+
+.tabs-container .selected .content .title{
+    color: var(--bl-color-primary);
+}
+
+.tabs-container .tab-container .content .title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: var(--bl-font-title-3-medium);
+    color: var(--bl-color-neutral-darker);
+    line-height: var(--bl-size-m);
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    padding: var(--bl-size-xl);
+    gap: var(--bl-size-m);
+}
+
+.select2-container {
+    width: 100% !important; /* Genişliği ayarlar */
+}
+
+.select2-selection {
+    height: auto !important; /* Yüksekliği otomatik yapar */
+    min-height: 34px; /* Minimum yüksekliği belirler */
+}

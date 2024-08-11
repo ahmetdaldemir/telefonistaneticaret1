@@ -179,6 +179,12 @@
   line-height: 2rem;
 }
 
+.avatar-xs{
+  height: 1.5rem;
+  width: 1.5rem;
+  line-height: 1.5rem;
+}
+
 .avatar-md{
   height: 2.5rem;
   width: 2.5rem;
@@ -6203,7 +6209,7 @@ button,
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: button; /* 1 */
-  background-color: transparent; /* 2 */
+ /* background-color: transparent; /* 2 */
   background-image: none; /* 2 */
 }
 

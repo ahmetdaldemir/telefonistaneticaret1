@@ -5,34 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fea81975-61e8-4f2e-8ef3-b10cab250d91" name="Changes" comment="sdf">
-      <change afterPath="$PROJECT_DIR$/app/Models/BaseModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/edit_product.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/product/editupload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/product/gallery.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/product/newupload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/test.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/edit_product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Filters/ProductFilter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admin/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admin/css/modal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admin/css/search.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admin/css/table.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admin/img/box.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admin/new-product.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admin/vendors/sweetalert.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/tr/pagination.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/product/search.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/product/updatemodal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a4f9a9ba-10dc-4f08-9d88-e494d0b2f2de.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a4f9a9ba-10dc-4f08-9d88-e494d0b2f2de.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/telefonistan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/telefonistan.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/TrendyolProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/TrendyolProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BrandController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Ecommerce/EcommerceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Ecommerce/EcommerceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/MarketAttribute.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MarketAttribute.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/MonthlyDeal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MonthlyDeal.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2024_04_13_195733_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_04_13_195733_create_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/brand.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/brand.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/admin/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/css/product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/admin/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/fileuploader/jquery.fileuploader.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/fileuploader/jquery.fileuploader.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/admin/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/product/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/product/upload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/ecommerceSetting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/ecommerceSetting.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/faq.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/faq.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/vendors/datatables/jquery.dataTables.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/vendors/datatables/jquery.dataTables.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/banner.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/banner.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/brand.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/brand.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/edit_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/edit_product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/new_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/new_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/order/ecommerce.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order/ecommerce.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/partials/variant.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/partials/variant.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/admin/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/admin/nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ecommerce/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ecommerce/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/admin/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/admin/admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,39 +207,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;PHPUnit.Main.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/emila/PhpstormProjects/telefonistan/public/admin&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "PHPUnit.Main.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "last_opened_file_path": "/Users/emila/PhpstormProjects/telefonistan/public/admin/img",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/admin/img" />
       <recent name="$PROJECT_DIR$/public/admin" />
       <recent name="$PROJECT_DIR$/public/admin/product" />
       <recent name="$PROJECT_DIR$/resources/views/admin" />
       <recent name="$PROJECT_DIR$/app/Library" />
-      <recent name="$PROJECT_DIR$/public/admin/fileuploader" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/admin/partials" />
@@ -274,7 +282,7 @@
       <workItem from="1721669411743" duration="18442000" />
       <workItem from="1721928686531" duration="67518000" />
       <workItem from="1722701355246" duration="5024000" />
-      <workItem from="1722971054421" duration="836000" />
+      <workItem from="1722971054421" duration="26507000" />
     </task>
     <task id="LOCAL-00001" summary="sdf">
       <option name="closed" value="true" />
@@ -332,7 +340,23 @@
       <option name="project" value="LOCAL" />
       <updated>1721594910116</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="sdf">
+      <option name="closed" value="true" />
+      <created>1722972656510</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1722972656510</updated>
+    </task>
+    <task id="LOCAL-00009" summary="sdf">
+      <option name="closed" value="true" />
+      <created>1722972669124</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1722972669124</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,12 +371,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php</url>
-          <line>299</line>
+          <line>318</line>
           <properties>
             <option name="className" value="\App\Http\Controllers\Admin\ProductController" />
             <option name="methodName" value="mounthdeal" />
           </properties>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php</url>
+          <line>25</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -37,7 +37,7 @@ class TrendyolProduct extends Command
         ])->first();
         $serviceSelect = new VirtualMarketServiceLocator();
         $this->serviceParams = $serviceSelect->getPlatformService($data['virtualmarketId'], $settings);
-        $products = Product::find(262);
+        $products = Product::find(299);
 
             $product = $this->getProduct($products);
             $servicePost = $this->serviceParams->setProduct($product,$settings->settings['clientId']);
@@ -59,7 +59,6 @@ class TrendyolProduct extends Command
 
     public function getProduct($product)
     {
-
         $brandID = $product->productVirtualSetting[0]['brand_id']['trendyol'][0];
 
         $attributeIds = $product->productVirtualSetting[0]['attribute_id']['trendyol'];
