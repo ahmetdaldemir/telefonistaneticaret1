@@ -450,33 +450,16 @@
                                                                       stroke-width="2"
                                                                       d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                                             </svg>
-                                                            <span class="menu-item-text">Account</span>
+                                                            <span class="menu-item-text">Hesabım</span>
                                                         </div>
                                                         <ul>
                                                             <li data-menu-item="classic-settings" class="menu-item">
                                                                 <a class="h-full w-full flex items-center"
-                                                                   href="classic-settings.html">
-                                                                    <span>Settings</span>
+                                                                   href="#">
+                                                                    <span>Ayarlar</span>
                                                                 </a>
                                                             </li>
-                                                            <li data-menu-item="classic-invoice" class="menu-item">
-                                                                <a class="h-full w-full flex items-center"
-                                                                   href="classic-invoice.html">
-                                                                    <span>Invoice</span>
-                                                                </a>
-                                                            </li>
-                                                            <li data-menu-item="classic-activity-log" class="menu-item">
-                                                                <a class="h-full w-full flex items-center"
-                                                                   href="classic-activity-log.html">
-                                                                    <span>Activity Log</span>
-                                                                </a>
-                                                            </li>
-                                                            <li data-menu-item="classic-kyc-form" class="menu-item">
-                                                                <a class="h-full w-full flex items-center"
-                                                                   href="classic-kyc-form.html">
-                                                                    <span>KYC Form</span>
-                                                                </a>
-                                                            </li>
+
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -1076,12 +1059,15 @@
 
 <!-- Core Vendors JS -->
 <script src="{{asset('admin/js/vendors.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.tr.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script src="{{asset('admin/vendors/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('admin/vendors/datatables/dataTables.custom-ui.min.js')}}"></script>
 <script src="{{asset('admin/vendors/sweetalert.js')}}"></script>
 <script src="{{asset('admin/js/app.min.js')}}"></script>
-
 <script src="{{asset('admin/core.js')}}"></script>
 @yield('customJS')
 </body>

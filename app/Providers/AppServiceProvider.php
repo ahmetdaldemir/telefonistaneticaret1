@@ -2,10 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Company;
 use App\Models\Product;
+use App\Observers\CompanyObserver;
 use App\Observers\ProductObserver;
 use Illuminate\Support\ServiceProvider;
-use TCG\Voyager\Facades\Voyager;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Product::observe(ProductObserver::class);
+        Company::observe(CompanyObserver::class);
 
     }
 }

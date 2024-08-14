@@ -53,15 +53,19 @@
             </div>
         </div>
     </div>
-    <main class="h-full">
-        <div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
-            <div class="container mx-auto">
-                <div class="card adaptable-card">
-                    <div class="card-body">
-                        <div class="lg:flex items-center justify-between mb-4">
-                            <h3 class="mb-4 lg:mb-0">Kullanıcıler</h3>
-                            <button class="btn btn-two-tune btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#userBasic">
+    <div class="subbanner alert-dismissible bg-primary-50 dark:bg-primary-500 text-primary-500 dark:text-primary-100">
+        <div class="alert-content">
+            <div>
+                <h3>Kullanıcılar</h3>
+            </div>
+            <div slot="left">
+
+            </div>
+        </div>
+        <div slot="right" class="float-right">
+            <div class="grid grid-cols-1 gap-1">
+                <button class="btn btn-sm bg-rose-600 text-white" data-bs-toggle="modal"
+                        data-bs-target="#userBasic">
                                 <span class="flex items-center justify-center gap-2">
                                     <span class="text-lg">
                                         <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
@@ -73,30 +77,39 @@
                                     </span>
                                     <span id="userBasic">Yeni Kullanıcı</span>
                                 </span>
-                            </button>
-                        </div>
-                        <div id="DataTable" class="overflow-x-auto">
+                </button>
+            </div>
+        </div>
+    </div>
 
-                            <table id="datatable" class="table-default table-hover data-table dataTable no-footer">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Kullanıcı</th>
-                                    <th>Durum</th>
-                                    <th>İşlemler</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
+    <div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
+        <div class="container mx-auto">
+            <div class="card adaptable-card">
+                <div class="card-body">
+                    <div class="lg:flex items-center justify-between mb-4">
+
+                    </div>
+                    <div id="DataTable" class="overflow-x-auto">
+
+                        <table id="datatable" class="table-default table-hover data-table dataTable no-footer">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Kullanıcı</th>
+                                <th>Durum</th>
+                                <th>İşlemler</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
 
 
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 
 @endsection
 

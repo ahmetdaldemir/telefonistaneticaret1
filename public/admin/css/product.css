@@ -516,3 +516,34 @@
     gap: var(--bl-size-m);
 }
 
+
+.productList .dropdown{
+    border: 2px solid #273142;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 3px;
+}
+.productList .dropdownInSpan{
+    color: #38465e;
+    font-weight: 600;
+}
+.productList .dropdown-menu.show {
+    display: block;
+    border: 1px solid #273142;
+}
+
+.row-space {
+    height: var(--bl-size-3xs);
+}
+
+.productList table{
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
+
+.table-default thead > tr > th {
+    letter-spacing: 0 !important;
+    padding-right: 0.75rem !important;
+
+}

@@ -48,15 +48,19 @@
             </div>
         </div>
     </div>
-    <main class="h-full">
-        <div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
-            <div class="container mx-auto">
-                <div class="card adaptable-card">
-                    <div class="card-body">
-                        <div class="lg:flex items-center justify-between mb-4">
-                            <h3 class="mb-4 lg:mb-0">Müşteriler</h3>
-                            <button class="btn btn-two-tune btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#customerBasic">
+    <div class="subbanner alert-dismissible bg-primary-50 dark:bg-primary-500 text-primary-500 dark:text-primary-100">
+        <div class="alert-content">
+            <div>
+                <h3>Müşteriler Listesi</h3>
+            </div>
+            <div slot="left">
+
+            </div>
+        </div>
+        <div slot="right" class="float-right">
+            <div class="grid grid-cols-1 gap-1">
+                <button class="btn btn-sm bg-rose-600 text-white" data-bs-toggle="modal"
+                        data-bs-target="#customerBasic">
                                 <span class="flex items-center justify-center gap-2">
                                     <span class="text-lg">
                                         <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
@@ -66,12 +70,18 @@
                                                   d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
                                     </span>
-                                    <span id="customerBasic">Yeni Müşteri</span>
+                                    <span id="userBasic">Yeni Faq</span>
                                 </span>
-                            </button>
-                        </div>
-                        <div id="DataTable" class="overflow-x-auto">
+                </button>
+            </div>
+        </div>
+    </div>
+        <div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
+            <div class="container mx-auto">
+                <div class="card adaptable-card">
+                    <div class="card-body">
 
+                        <div id="DataTable" class="overflow-x-auto">
                             <table id="datatable" class="table-default table-hover data-table dataTable no-footer">
                                 <thead>
                                 <tr>
@@ -93,12 +103,14 @@
                 </div>
             </div>
         </div>
-    </main>
+
 
 @endsection
 
 @section('customJS')
 
     <script src="{{asset('admin/customer.js')}}"></script>
-
+<script>
+    $('#datatable').DataTable();
+</script>
 @endsection

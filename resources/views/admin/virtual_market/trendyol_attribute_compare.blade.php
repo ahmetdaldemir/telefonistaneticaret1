@@ -71,7 +71,7 @@
 
                             </div>
 
-                            <button id="match-attribute" class="btn btn-two-tune btn-sm">KAYDET</button>
+                            <button id="match-attribute" class="btn btn-sm bg-rose-600 text-white">KAYDET</button>
                         </div>
                     </div>
 

@@ -12,7 +12,7 @@ class VirtualMarketSetting extends Model
     protected $casts = [
         'settings' => 'array',
     ];
-    protected $fillable = ['settings'];
+    protected $fillable = ['settings','virtual_market_id','company_id','is_active'];
     public function virtualMarket()
     {
         return $this->hasOne(VirtualMarket::class, 'id','virtual_market_id');

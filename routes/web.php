@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CustomerController;
@@ -12,12 +13,14 @@ use App\Http\Controllers\Admin\ModelController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductAttributeController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ShippingsController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VirtualMarketController;
 use App\Http\Controllers\Ecommerce\EcommerceController;
 use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SupervisorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -77,6 +80,8 @@ Route::post('paymentCallback', [EcommerceController::class, 'checkout_complate']
 
 Route::domain('adminnew.telefonistan.com')->group(function () {
     Route::get('dashboard', [AdminController::class, 'index'])->middleware(['admin'])->name('dashboard');
+    Route::post('dashboard_data', [AdminController::class, 'getDashboardData'])->name('dashboard_data');
+
     Route::get('adminlogin', [LoginController::class, 'adminlogin'])->name('adminlogin');
     Route::post('authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
     Route::prefix('brand')->name('brand.')->middleware(['admin'])->group(function () {
@@ -114,8 +119,6 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
         Route::post('update_variant_status', [ProductController::class, 'update_variant_status'])->name('update_variant_status');
 
     });
-
-
     Route::prefix('model')->name('model.')->middleware(['admin'])->group(function () {
         Route::get('/', [ModelController::class, 'index'])->name('index');
         Route::get('edit', [ModelController::class, 'edit'])->name('edit');
@@ -125,7 +128,6 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
         Route::post('store', [ModelController::class, 'store'])->name('store');
         Route::post('update', [ModelController::class, 'update'])->name('update');
     });
-
     Route::prefix('slider')->name('slider.')->middleware(['admin'])->group(function () {
         Route::get('/', [SliderController::class, 'index'])->name('index');
         Route::get('edit', [SliderController::class, 'edit'])->name('edit');
@@ -154,12 +156,12 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
         Route::post('store', [EcommerceSettingController::class, 'store'])->name('store');
         Route::put('update/{id}', [EcommerceSettingController::class, 'update'])->name('update');
         Route::get('delete', [EcommerceSettingController::class, 'destroy'])->name('delete');
-
     });
 
     Route::prefix('category')->name('category.')->middleware(['admin'])->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('index');
         Route::get('get', [CategoryController::class, 'show'])->name('get');
+        Route::get('create', [CategoryController::class, 'create'])->name('create');
         Route::post('store', [CategoryController::class, 'store'])->name('store');
         Route::put('update/{id}', [CategoryController::class, 'update'])->name('update');
         Route::delete('delete', [CategoryController::class, 'destroy'])->name('delete');
@@ -226,6 +228,7 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
     });
 
 
+
     Route::prefix('virtual_market')->name('virtual_market.')->middleware(['admin'])->group(function () {
         Route::get('/', [VirtualMarketController::class, 'index'])->name('index');
         Route::get('show', [VirtualMarketController::class, 'show'])->name('show');
@@ -240,11 +243,39 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
         Route::prefix('virtual_market_setting')->name('virtual_market_setting.')->middleware([])->group(function () {
             Route::get('/', [VirtualMarketController::class, 'index'])->name('index');
             Route::post('store', [VirtualMarketController::class, 'virtual_market_setting_store'])->name('store');
-            Route::put('update/{id}', [VirtualMarketController::class, 'update'])->name('update');
-            Route::put('edit/{id}', [VirtualMarketController::class, 'update'])->name('edit');
+            Route::post('update', [VirtualMarketController::class, 'update'])->name('update');
+            Route::get('edit', [VirtualMarketController::class, 'edit'])->name('edit');
+            Route::post('companyStatusUpdate', [VirtualMarketController::class, 'companyStatusUpdate'])->name('companyStatusUpdate');
         });
 
     });
+
+    Route::prefix('supervisor')->name('supervisor.')->middleware(['role.guard:admin,supervisor'])->group(function () {
+        Route::get('/', [SupervisorController::class, 'index'])->name('index');
+        Route::post('store', [SupervisorController::class, 'store'])->name('store');
+        Route::delete('delete', [SupervisorController::class, 'destroy'])->name('delete');
+        Route::post('update', [SupervisorController::class, 'update'])->name('update');
+        Route::get('edit', [SupervisorController::class, 'edit'])->name('edit');
+        Route::post('siteUpdate', [SupervisorController::class, 'siteUpdate'])->name('siteUpdate');
+     });
+
+    Route::prefix('transaction')->name('transaction.')->middleware(['role.guard:admin'])->group(function () {
+        Route::get('/', [SupervisorController::class, 'index'])->name('index');
+    });
+
+
+    Route::prefix('shippings')->name('shippings.')->middleware(['admin'])->group(function () {
+        Route::get('/', [ShippingsController::class, 'index'])->name('index');
+        Route::post('store', [ShippingsController::class, 'store'])->name('store');
+        Route::delete('delete', [ShippingsController::class, 'destroy'])->name('delete');
+        Route::post('update', [ShippingsController::class, 'update'])->name('update');
+        Route::get('edit', [ShippingsController::class, 'edit'])->name('edit');
+        Route::post('companyStore', [ShippingsController::class, 'companyStore'])->name('companyStore');
+        Route::post('companyStatusUpdate', [ShippingsController::class, 'companyStatusUpdate'])->name('companyStatusUpdate');
+    });
+
+    Route::get('/blog', [BlogController::class, 'index'])->name('index');
+    Route::post('/generate-content', [BlogController::class, 'generateContent'])->name('generate-content');
 
 
 });

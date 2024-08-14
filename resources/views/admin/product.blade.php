@@ -38,43 +38,58 @@
             <div class="container mx-auto">
                 <div class="card adaptable-card">
                     <div class="card-body productList">
-                        <div class="overflow-x-auto">
+                        <div class="table-container">
                             <table   class="table-default table-hover">
                                 <thead>
                                 <tr>
-                                    <th style="font-size:12px;width: 5%" class="text-center">Barcode</th>
-                                    <th style="font-size:12px;width: 41%" class="text-center">Urun Adi</th>
-                                    <th style="font-size:12px;width: 10%" class="text-center">Model K</th>
-                                    <th style="font-size:12px;width: 10%" class="text-center">PSF </th>
-                                    <th style="font-size:12px;width: 10%" class="text-center">İndirimli Fiyat</th>
-                                    <th style="font-size:12px;width: 2%" class="text-center">Durum/Adet</th>
-                                    <th style="font-size:12px;width: 3%" class="text-center">Kargo Bedava</th>
-                                    <th style="font-size:12px;width: 3%" class="text-center">Bundle</th>
-                                    <th style="font-size:12px;width: 3%" class="text-center">Desi</th>
-                                    <th style="font-size:12px;width: 3%" class="text-center">G. Süresi</th>
-                                    <th style="font-size:12px;width: 10%" class="text-center"></th>
+                                     <th style="font-size:12px;" class="text-center">#</th>
+                                     <th style="font-size:12px;" class="text-center">Urun Bilgisi</th>
+                                    <th style="font-size:12px;" class="text-center">Marka</th>
+                                    <th style="font-size:12px;" class="text-center">Kategori</th>
+                                    <th style="font-size:12px;" class="text-center">PSF </th>
+                                    <th style="font-size:12px;" class="text-center">İndirimli Fiyat</th>
+                                    <th style="font-size:12px;" class="text-center">Durum/Adet</th>
+                                    <th style="font-size:12px;" class="text-center">Kargo Bedava</th>
+                                    <th style="font-size:12px;" class="text-center">Bundle</th>
+                                    <th style="font-size:12px;" class="text-center">Desi</th>
+                                    <th style="font-size:12px;" class="text-center">G. Süresi</th>
+                                    <th style="font-size:12px;" class="text-center"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($products as $product)
                                     <tr style="font-size: 12px">
-                                        <td style="font-size: 12px">
+                                        <td class="text-center">
                                             <label class="checkbox-label">
                                                 <input id="product_id"  name="product_id"  class="checkbox" type="checkbox" value="{{$product->id}}">
                                             </label>
-                                            {{$product->product->barcode}}
                                         </td>
-
                                         <td>
-                                            <div class="flex items-center"><span
-                                                        class="avatar avatar-rounded avatar-xs"><img
-                                                            class="avatar-img avatar-rounded"
-                                                            src="{{ $product->images->isNotEmpty() ? $product->images[0]->image : asset('admin/img/others/upload.png') }}"
-                                                            loading="lazy"></span><span
-                                                        class="ml-2 rtl:mr-2 font-semibold">{{$product->product->name}}</span>
+
+                                            <div class="grid grid-rows-1 grid-flow-col gap-1">
+
+                                                <div class="row-span-3" style="display: flex;flex-direction: column;flex-wrap: nowrap;justify-content: space-around;">
+                                                      <span class="avatar avatar-rounded avatar-lg">
+                                                         <img class="avatar-img avatar-rounded"  src="{{ $product->images->isNotEmpty() ? $product->images[0]->image : asset('admin/img/others/upload.png') }}" loading="lazy">
+
+                                                </span>
+                                                </div>
+                                                <div class="col-span-1 row-span-1"><span class="font-semibold">{{$product->product->name}}</span>
+                                                </div>
+                                                <div class="row-span-2 col-span-2" style="display: flex;flex-direction: column;">
+
+                                                    <span class="grid grid-flow-col auto-cols-max">Stok Kodu:8683140727468
+                                                     <svg   data-bs-toggle="tooltip" data-bs-title="Kopyala" data-bs-placement="right" width="12" height="12" class="ml-3 cursor-pointer  outline-none"  style="    float: right;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 3C0 1.34315 1.34315 0 3 0H14C15.6569 0 17 1.34315 17 3V5H8C6.34315 5 5 6.34315 5 8V17H3C1.34315 17 0 15.6569 0 14V3ZM10 7C8.34315 7 7 8.34315 7 10V21C7 22.6569 8.34314 24 10 24H19.0083H21C22.6569 24 24 22.6569 24 21V10C24 8.34315 22.6569 7 21 7H10Z" fill="currentColor"></path>
+                                                        </svg>
+                                                    </span>
+
+                                                </div>
                                             </div>
+
                                         </td>
-                                        <td><b class="text-blue-500">{{$product->stock_code}}</b></td>
+                                        <td class="text-center"><b class="text-blue-500">{{$product->product->brandModel->name}}</b></td>
+                                        <td class="text-center"><b class="text-blue-500">{{$product->product->categoryModel->name}}</b></td>
                                         <td>
                                             <span class="text-red-500">{{$product->retail_price}} ₺</span>
                                         </td>
@@ -113,29 +128,35 @@
                                         <td class="text-center">{{$product->product->desi}}</td>
                                         <td class="text-center">{{$product->product->delivery_time}}</td>
                                         <td>
-                                            <div class="flex justify-end text-lg">
 
-                                            <span class="cursor-pointer p-2 hover:text-red-500">
-                                                <a href="{{route('product.edit',['id' => $product->id])}}">
-                                                 <svg stroke="currentColor" fill="none" stroke-width="2"
-                                                      viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em"
-                                                      xmlns="http://www.w3.org/2000/svg">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                          d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
-                                                </svg>
-                                                    </a>
-                                            </span>
-                                                <span class="cursor-pointer p-2 hover:text-red-500">
-                                                <a href="{{route('product.delete',['id' => $product->id])}}">
-                                                <svg stroke="currentColor" fill="none" stroke-width="2"
-                                                     viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                                </svg>
-                                                    </a>
-                                            </span>
+                                            <div class="grid grid-flow-row auto-rows-max">
+                                                <button class="btn m-4 btn-xs bg-orange-500 hover:bg-orange-400 active:bg-orange-600 text-white" size="small"> Detaya Git </button>
+                                                <div class="dropdown">
+                                                    <div class="dropdown-toggle" data-bs-toggle="dropdown">
+                                                    <span class="flex items-center cursor-pointer dropdownInSpan" style="justify-content: center">
+                                                        <span>İşlemler</span>
+                                                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                                        </svg>
+                                                    </span>
+                                                    </div>
+                                                    <ul class="dropdown-menu">
+                                                        <li class="menu-item">
+                                                            <a href="{{route('product.delete',['id' => $product->id])}}">Ürünü Sil</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="{{route('product.edit',['id' => $product->id])}}">Ürünü Düzenle</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="#">Ürün Performansını Görüntüle</a>
+                                                        </li>
+                                                        <li class="menu-item">
+                                                            <a href="#">Ürünü Kopyala</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
+
                                         </td>
                                     </tr>
                                 @endforeach

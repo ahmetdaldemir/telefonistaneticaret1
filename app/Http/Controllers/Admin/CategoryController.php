@@ -17,9 +17,8 @@ class CategoryController extends Controller
 
     public function index()
     {
-
         $data['categories'] = Category::all();
-        return view('admin.category', $data);
+        return view('admin.category.index', $data);
     }
 
 
@@ -54,10 +53,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $data['categories'] = Category::all();
-        $data['brands'] = Brand::all();
-        $data['attributeGroups'] = AttributeGroup::all();
-        return view('admin/new_product', $data);
+        return view('admin.category/create');
     }
 
     /**
@@ -137,21 +133,6 @@ class CategoryController extends Controller
         } else {
             return response()->json(['message' => 'Kategori bulunamadı'], 404);
         }
-    }
-
-    public function mounthdeal($id, $status)
-    {
-        if ($status == 1) {
-            MonthlyDeal::where('product_id', $id)->delete();
-            return response()->json('Ayın Ürünü Silindi', 200);
-        } else {
-            $mounthdeal = new MonthlyDeal();
-            $mounthdeal->product_id = $id;
-            $mounthdeal->company_id = auth()->user()->company_id ?? 1;
-            $mounthdeal->save();
-            return response()->json('Ayın Ürünü Eklendi', 200);
-        }
-
     }
 
 

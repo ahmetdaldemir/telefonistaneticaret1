@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('shippings', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->autoIncrement()->index();
             $table->string('title');
+            $table->text('settings_fields')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

@@ -11,6 +11,6 @@ class TenantScope implements Scope
 {
     public function apply(Builder $builder, Model $model)
     {
-        $builder->where('company_id', auth()->user()->company_id??1);
+        $builder->where('company_id', auth()->guard('admin')->user()->company_id??1);
     }
 }

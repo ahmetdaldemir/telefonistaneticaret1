@@ -1,43 +1,33 @@
 <?php
 
-namespace app\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Banner;
+use App\Models\Company;
 use App\Models\EcommerceSetting;
-use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class EcommerceSettingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+    }
+
     public function index()
     {
         $data['ecommerceSettings'] = EcommerceSetting::all();
+        $data['company'] = Company::find(auth()->guard('admin')->user()->company_id);
         return view('admin/ecommerceSetting', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $value = $request->value;
@@ -58,12 +48,7 @@ class EcommerceSettingController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\EcommerceSetting $setting
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(EcommerceSetting $setting)
     {
         //
@@ -71,24 +56,13 @@ class EcommerceSettingController extends Controller
 
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\EcommerceSetting $setting
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, EcommerceSetting $setting)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\EcommerceSetting $setting
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Request $request)
     {
         $image = EcommerceSetting::findOrFail($request->id);

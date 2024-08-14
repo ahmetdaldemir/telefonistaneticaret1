@@ -85,3 +85,59 @@
     font-size: var(--bl-font-size-m);
     line-height: var(--bl-font-size-l);
 }
+
+/*
+   // Datepicker Ayarları
+*/
+.datepicker-days{
+    padding: 10px !important;
+}
+
+.datepicker td, .datepicker th {
+    padding: 5px !important;
+    border: 1px solid #eaeaea !important;
+}
+
+
+/* İnput ayarları*/
+.input {
+  /*  height: 2.15rem; */
+  /*  padding-top: 0.5rem; */
+  /*  border-radius: 0.175rem; */
+
+    width: 100%;
+    height: 40px;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: var(--bl-size-xs) var(--bl-size-m);
+    max-height: var(--bl-size-3xl);
+    border: 1px solid #d5d9e1;
+    border-radius: var(--bl-border-radius-m);
+
+}
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: revert-layer !important;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.input-daterange input:last-child {
+     -webkit-border-radius:var(--bl-border-radius-m) !important;
+    -moz-border-radius:var(--bl-border-radius-m) !important;
+    border-radius: var(--bl-border-radius-m) !important;
+    width: 135px !important;
+}
+input[type="file"] {
+    padding-top: 0.4rem;
+    font-weight: 600;
+    color: #f80;
+}
+
+.input.input-sm{
+    height: auto !important;
+}

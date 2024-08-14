@@ -55,6 +55,17 @@ class Product extends BaseModel {
         return $this->hasMany(ProductVariant::class, 'product_id', 'id');
     }
 
+    public function brandModel()
+    {
+        return $this->hasOne(Brand::class, 'id', 'brand');
+    }
+
+
+    public function categoryModel()
+    {
+        return $this->hasOne(GeneralCategory::class, 'category_id', 'category');
+    }
+
     public function attributes()
     {
         return $this->hasMany(ProductAttribute::class, 'product_id', 'id');

@@ -56,7 +56,7 @@
 
                             </div>
 
-                            <button id="match-categories" class="btn btn-two-tune btn-sm">KAYDET</button>
+                            <button id="match-categories" class="btn btn-sm bg-rose-600 text-white">KAYDET</button>
                         </div>
                     </div>
 

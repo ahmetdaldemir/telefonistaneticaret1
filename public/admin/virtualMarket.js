@@ -201,3 +201,37 @@ $(document).ready(function () {
         minimumInputLength: 1 // En az bir karakter yazıldığında arama yapar
     });
 });
+
+
+
+$('.virtualMarketList').on('change','.virtualMarketStatus',function () {
+    var id = $(this).data('id');
+    var is_active = $(this).data('is_active');
+    $.ajax({
+        type: 'POST',
+        url: '/virtual_market/virtual_market_setting/companyStatusUpdate',  // Sunucuda işlenecek URL
+        data: {
+            id: id,
+            is_active: is_active,
+            payload: '',
+            price: 0,
+        },
+        success: function(response) {
+            Swal.fire({
+                title: ''+response.title+'',
+                text: response.message,
+                icon: ''+response.icon+'',
+                timer: 3000,
+                showConfirmButton: false
+            }).then(() => {
+                window.location.reload();
+            });
+
+        },
+        error: function(xhr, status, error) {
+            console.error('Durum güncelleme hatası:', error);
+            Swal.fire('Durum bir hata oluştu.');
+
+        }
+    });
+})

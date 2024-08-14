@@ -24,7 +24,11 @@ class VirtualMarketController extends Controller
      */
     public function index()
     {
-        $data['virtualMarkets'] = VirtualMarketSetting::where('company_id',auth()->guard('admin')->user()->company_id)->get();
+        $activeCompanyId = auth()->guard('admin')->user()->company_id; // Aktif şirketin ID'sini al
+        $virtualMarkets = VirtualMarket::with(['virtual_market_setting' => function ($query) use ($activeCompanyId) {
+            $query->where('company_id', $activeCompanyId);
+        }])->where('is_active', 1)->get();
+        $data['virtualMarkets'] = $virtualMarkets;
         return view('admin/virtual_market/index', $data);
     }
 
@@ -66,9 +70,10 @@ class VirtualMarketController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $data['virtualMarket'] = VirtualMarket::find($request->id);
+        return view('admin.virtual_market.edit', $data);
     }
 
 
@@ -87,31 +92,72 @@ class VirtualMarketController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $slider = Slider::find($id);
-        $slider->{$request->field} = $request->value == 0 ? 1 : 0;
-        $slider->save();
-        return response()->json('Güncelleme Başarılı', 200);
+
+        $companyId = auth()->guard('admin')->user()->company_id;
+        $virtualMarketId = $request->id;
+        $status = $request->status;
+
+        if ($status == 1) {
+            $companyShipping = VirtualMarketSetting::updateOrCreate(
+                [
+                    'company_id' => $companyId, // Koşul olarak kullanılacak company_id
+                    'virtual_market_id' => $virtualMarketId // Kayıt bulmak için kullanılacak ek koşul (opsiyonel)
+                ],
+                [
+                    'settings' => $request->payload,
+                    'is_active' => $status
+                ]
+            );
+            return redirect()->back();
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
+
+    public function companyStatusUpdate(Request $request)
+    {
+        $companyId = auth()->guard('admin')->user()->company_id;
+        $virtualMarketId = $request->id;
+        $is_active = $request->is_active == 1 ? 0 : 1;
+
+        $virtualMarketSetting = VirtualMarketSetting::updateOrCreate(
+            [
+                'company_id' => $companyId,
+                'virtual_market_id' => $virtualMarketId
+            ],
+            [
+                'is_active' => $is_active
+            ]
+        );
+        $virtualMarketSetting->save();
+        if ($virtualMarketSetting) {
+            return response()->json([
+                'message' => 'Sanal Pazar Güncellendi',
+                'title' => 'Başarılı',
+                'success' => true,
+                'icon' => 'success'
+            ], 200);
+        }
+
+        return response()->json([
+            'message' => 'Sanal Pazar Güncellenemedi',
+            'title' => 'Başarısız',
+            'success' => false,
+            'icon' => 'warning'
+        ], 200);
+
+    }
+
+
     public function destroy(Request $request)
     {
-        $image = Slider::findOrFail($request->id);
-        Storage::delete('slider/' . $image->img);
-        $image->delete();
-        return redirect()->back()->with('success', 'Slider deleted successfully!');
+
     }
 
     public function trendyol_category_compare(Request $request)
     {
-        $data['virtual_market_category'] = VirtualMarketCategory::where('virtual_market_id',2)->get();
+        $data['virtual_market_category'] = VirtualMarketCategory::where('virtual_market_id', 2)->get();
         $data['categories'] = \App\Models\Category::all();
         return view('admin/virtual_market/trendyol_category_compare', $data);
 
@@ -119,9 +165,9 @@ class VirtualMarketController extends Controller
 
     public function trendyol_attribute_compare(Request $request)
     {
-        $virtualMarketCategories = VirtualMarketCategoryCompare::where('company_id',1)->pluck('virtual_market_category_id');
-       dd($virtualMarketCategories,$request);
-        $data['virtual_market_attribute'] = VirtualMarketAttribute::where('required',true)->whereIn('categoryId',$virtualMarketCategories)->get();
+        $virtualMarketCategories = VirtualMarketCategoryCompare::where('company_id', 1)->pluck('virtual_market_category_id');
+        dd($virtualMarketCategories, $request);
+        $data['virtual_market_attribute'] = VirtualMarketAttribute::where('required', true)->whereIn('categoryId', $virtualMarketCategories)->get();
         $data['attributes'] = \App\Models\Attribute::all();
         return view('admin/virtual_market/trendyol_attribute_compare', $data);
 
@@ -129,28 +175,28 @@ class VirtualMarketController extends Controller
 
     public function getCategories(Request $request)
     {
-       $x = VirtualMarketCategory::where('name','like',$request->term.'%')->get();
-       return response()->json($x,200);
+        $x = VirtualMarketCategory::where('name', 'like', $request->term . '%')->get();
+        return response()->json($x, 200);
     }
 
     public function myCategories(Request $request)
     {
-        $x = \App\Models\Category::where('name','like',$request->term.'%')->get();
+        $x = \App\Models\Category::where('name', 'like', $request->term . '%')->get();
         $y = CategoryHelper::getCategoryPaths($x);
-        return response()->json($y,200);
+        return response()->json($y, 200);
 
     }
 
     public function getAttributes(Request $request)
     {
-        $x = VirtualMarketAttribute::where('name','like',$request->term.'%')->get();
-        return response()->json($x,200);
+        $x = VirtualMarketAttribute::where('name', 'like', $request->term . '%')->get();
+        return response()->json($x, 200);
     }
 
     public function myAttributes(Request $request)
     {
-        $y = \App\Models\Attribute::where('name','like',$request->term.'%')->get();
-        return response()->json($y,200);
+        $y = \App\Models\Attribute::where('name', 'like', $request->term . '%')->get();
+        return response()->json($y, 200);
 
     }
 
@@ -171,8 +217,6 @@ class VirtualMarketController extends Controller
 
         return response()->json('Kaydedildi');
     }
-
-
 
 
 }

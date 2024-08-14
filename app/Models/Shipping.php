@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Shipping extends Model
 {
     use HasFactory;
+
+    public function companyShipping()
+    {
+        return $this->hasMany(CompanyShippingSetting::class,'shipping_id','id');
+    }
 }

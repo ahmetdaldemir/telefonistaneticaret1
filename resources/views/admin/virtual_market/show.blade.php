@@ -8,7 +8,7 @@
                     <div class="card-body">
                         <div class="lg:flex items-center justify-between mb-4">
                             <h3 class="mb-4 lg:mb-0">Sanal Pazarlar</h3>
-                            <button class="btn btn-two-tune btn-sm" data-bs-toggle="modal" data-bs-target="#virtualMarketBasic">
+                            <button class="btn btn-sm bg-rose-600 text-white" data-bs-toggle="modal" data-bs-target="#virtualMarketBasic">
                                 <span class="flex items-center justify-center gap-2">
                                     <span class="text-lg">
                                         <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">

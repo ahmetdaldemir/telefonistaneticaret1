@@ -147,7 +147,7 @@
                                         <div id="category-details"></div>
                                         <div id="required-true-preview"
                                              class="flex-container required-false-preview-category">
-                                            <div class="g-image" alt="hourglass loader">
+                                            <div class=" " alt="hourglass loader">
                                                 <img  alt="hourglass loader"
                                                      src="https://cdn.dsmcdn.com/seller-center/spm/seller-center-product/assets/hourglass_loader.svg">
                                             </div>
@@ -194,7 +194,7 @@
                                     <div class="form-item vertical">
                                         <div id="required-false" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
                                         <div class="flex-container required-false-preview text-center">
-                                            <div class="g-image" style="margin: 0 auto" alt="hourglass loader">
+                                            <div class=" " style="margin: 0 auto" alt="hourglass loader">
                                                 <img alt="hourglass loader"
                                                      src="https://cdn.dsmcdn.com/seller-center/spm/seller-center-product/assets/hourglass_loader.svg">
                                             </div>

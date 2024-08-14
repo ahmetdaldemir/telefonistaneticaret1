@@ -63,17 +63,8 @@
             </div>
         </div>
         <div slot="right" class="float-right">
-            <div class="grid grid-cols-4 gap-4">
-            </div>
-        </div>
-    </div>
-        <div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
-            <div class="container mx-auto">
-                <div class="card adaptable-card">
-                    <div class="card-body">
-                        <div class="lg:flex items-center justify-between mb-4">
-                            <h3 class="mb-4 lg:mb-0">Bannerlar</h3>
-                            <button class="btn btn-two-tune btn-sm" data-bs-toggle="modal" data-bs-target="#bannerBasic">
+            <div class="grid grid-cols-1 gap-1">
+                <button class="btn btn-sm bg-rose-600 text-white" data-bs-toggle="modal" data-bs-target="#bannerBasic">
                                 <span class="flex items-center justify-center gap-2">
                                     <span class="text-lg">
                                         <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -82,8 +73,15 @@
                                     </span>
                                     <span>Yeni Banner</span>
                                 </span>
-                            </button>
-                        </div>
+                </button>
+            </div>
+        </div>
+    </div>
+        <div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
+            <div class="container mx-auto">
+                <div class="card adaptable-card">
+                    <div class="card-body">
+
                         <div class="overflow-x-auto">
                             <table id="banner-list-data-table" class="table-default table-hover data-table">
                                 <thead>
