@@ -161,11 +161,13 @@ Route::domain('adminnew.telefonistan.com')->group(function () {
     Route::prefix('category')->name('category.')->middleware(['admin'])->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('index');
         Route::get('get', [CategoryController::class, 'show'])->name('get');
+        Route::get('edit', [CategoryController::class, 'edit'])->name('edit');
         Route::get('create', [CategoryController::class, 'create'])->name('create');
         Route::post('store', [CategoryController::class, 'store'])->name('store');
-        Route::put('update/{id}', [CategoryController::class, 'update'])->name('update');
+        Route::put('update', [CategoryController::class, 'update'])->name('update');
         Route::delete('delete', [CategoryController::class, 'destroy'])->name('delete');
         Route::get('getcategory', [CategoryController::class, 'getcategory'])->name('getcategory');
+        Route::get('getCategoryList', [CategoryController::class, 'getCategoryList'])->name('getCategoryList');
 
     });
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="{{asset('admin/img/favicon.ico')}}">
-    <title>Elstar - HTML Tailwind Admin Template</title>
+    <title>E-Ticaret Yönetim Sistemi</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/default.css')}}">
 
@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/main.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/modal.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/css/a59c049a0f293bd7.css')}}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet"/>
     @yield('customCSS')
 </head>
